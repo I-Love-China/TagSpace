@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head>
+<base href="https://tldp.org/HOWTO/html_single/C++-dlopen/">
+<link rel="icon" data-savepage-href="" href="data:image/x-icon;base64,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"><title>C++ dlopen mini HOWTO</title><meta name="GENERATOR" content="Modular DocBook HTML Stylesheet Version 1.7"><link href="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/table-of-contents-sidebar.css" type="text/css" rel="stylesheet">
+<style id="savepage-cssvariables">
+  :root {
+  }
+</style>
+<script id="savepage-shadowloader" type="application/javascript">
+  "use strict"
+  window.addEventListener("DOMContentLoaded",
+  function(event)
+  {
+    savepage_ShadowLoader(5);
+  },false);
+  function savepage_ShadowLoader(c){createShadowDOMs(0,document.documentElement);function createShadowDOMs(a,b){var i;if(b.localName=="iframe"||b.localName=="frame"){if(a<c){try{if(b.contentDocument.documentElement!=null){createShadowDOMs(a+1,b.contentDocument.documentElement)}}catch(e){}}}else{if(b.children.length>=1&&b.children[0].localName=="template"&&b.children[0].hasAttribute("data-savepage-shadowroot")){b.attachShadow({mode:"open"}).appendChild(b.children[0].content);b.removeChild(b.children[0]);for(i=0;i<b.shadowRoot.children.length;i++)if(b.shadowRoot.children[i]!=null)createShadowDOMs(a,b.shadowRoot.children[i])}for(i=0;i<b.children.length;i++)if(b.children[i]!=null)createShadowDOMs(a,b.children[i])}}}
+</script>
+<script id="savepage-anchor-replace" type="application/javascript">
+  "use strict"
+  window.addEventListener('DOMContentLoaded',function(event) {
+    var i,j;
+    var anchors = document.getElementsByTagName('a');
+    for (i = 0; i < anchors.length; i++)
+    {
+      j = anchors[i].href.lastIndexOf('#');
+      if (j >= 0 && anchors[i].href.substr(0,j) == document.baseURI)
+        anchors[i].href = window.location.href + anchors[i].href.substr(j)
+    }
+  },false);
+</script>
+<script id="savepage-pageinfo-bar-insert" type="application/javascript">
+  "use strict"
+  window.addEventListener('load',function(event) {
+    var parser = new DOMParser();
+    var pageinfodoc = parser.parseFromString('<html> <style id="savepage-pageinfo-bar-style" type="text/css">#savepage-pageinfo-bar-content,#savepage-pageinfo-bar-content *{all:initial!important}#savepage-pageinfo-bar-content,#savepage-pageinfo-bar-content *{font-family:"Segoe UI","Helvetica Neue",Ubuntu,Arial!important;font-size:12px!important;color:black!important;cursor:default!important;-moz-user-select:none!important;-webkit-user-select:none!important}#savepage-pageinfo-bar-content{display:flex!important;position:fixed!important;left:0!important;top:0!important;width:100%!important;height:25px!important;border-bottom:1px solid #E0E0E0!important;background:#F8F8F8!important;overflow:hidden!important;z-index:2147483645!important}#savepage-pageinfo-bar-spacer-1{flex:0 1 auto!important;background:#F8F8F8!important}#savepage-pageinfo-bar-link{flex:0 1 auto!important;padding:4px 0!important;background:#F8F8F8!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}#savepage-pageinfo-bar-link:hover{text-decoration:underline!important}#savepage-pageinfo-bar-spacer-2{flex:1 1 auto!important;background:#F8F8F8!important}#savepage-pageinfo-bar-datetime{flex:0 1000000 auto!important;min-width:0!important;padding:4px 0!important;background:#F8F8F8!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}#savepage-pageinfo-bar-spacer-3{flex:0 1 auto!important;background:#F8F8F8!important}#savepage-pageinfo-bar-button{flex:0 0 25px!important;background-color:#F8F8F8!important;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA8SURBVChTYwCC/0DsAGJgASBxkDycga4QQxxdAEMBDCBLYFUAAyQpIGgVCGAoxBCAAhRxrEZDAVCc4T8AbzkX8F/+uCwAAAAASUVORK5CYII=)!important;background-repeat:no-repeat!important;background-position:center center!important}#savepage-pageinfo-bar-button:hover{background-color:#E8E8E8!important}#savepage-pageinfo-bar-button:active{background-color:#D8D8D8!important}</style> <div id="savepage-pageinfo-bar-content"> <div id="savepage-pageinfo-bar-spacer-1">&nbsp;&nbsp;&nbsp;</div> <a id="savepage-pageinfo-bar-link" href="https://tldp.org/HOWTO/html_single/C++-dlopen/" target="_blank">https://tldp.org/HOWTO/html_single/C++-dlopen/</a> <div id="savepage-pageinfo-bar-spacer-2">&nbsp;&nbsp;&nbsp;</div> <div id="savepage-pageinfo-bar-datetime">23 Dec 2020&nbsp;&nbsp;&nbsp;12:42:03</div> <div id="savepage-pageinfo-bar-spacer-3">&nbsp;&nbsp;&nbsp;</div> <div id="savepage-pageinfo-bar-button"></div> </div> </html>','text/html');
+    var container = document.createElement('div');
+    container.setAttribute('id','savepage-pageinfo-bar-container');
+    document.documentElement.appendChild(container);
+    container.appendChild(pageinfodoc.getElementById('savepage-pageinfo-bar-style'));
+    container.appendChild(pageinfodoc.getElementById('savepage-pageinfo-bar-content'));
+    document.getElementById('savepage-pageinfo-bar-button').addEventListener('click',function(event) {
+      var container = document.getElementById('savepage-pageinfo-bar-container');
+      document.documentElement.removeChild(container);
+    },false);
+  },false);
+</script>
+<meta name="savepage-url" content="https://tldp.org/HOWTO/html_single/C++-dlopen/">
+<meta name="savepage-title" content="C++ dlopen mini HOWTO">
+<meta name="savepage-from" content="https://tldp.org/HOWTO/html_single/C++-dlopen/">
+<meta name="savepage-date" content="Wed Dec 23 2020 12:42:03 GMT+0800 (China Standard Time)">
+<meta name="savepage-state" content="Standard Items; Retain cross-origin frames; Merge CSS images; Remove unsaved URLs; Remove hidden elements; Allow passive mixed content; Send referer headers with origin only; Max frame depth = 5; Max resource size = 50MB; Max resource time = 15s;">
+<meta name="savepage-version" content="23.8">
+<meta name="savepage-comments" content="">
+  </head><body class="article" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="ARTICLE"><div class="TITLEPAGE"><h1 class="title" id="c3de99b6-9e6a-5720-3346-c0bf1566b892"><a name="AEN2"></a>C++ dlopen mini HOWTO</h1><h3 class="author" id="575f40b3-0c33-aad0-0b48-7c83589b7d50"><a name="AEN4">Aaron Isotton</a></h3><div class="affiliation"><div class="address"><p class="address"><tt class="email">&lt;<a href="mailto:aaron@isotton.com">aaron@isotton.com</a>&gt;</tt></p></div></div><p class="pubdate">2006-03-16<br></p><div class="revhistory"><table width="100%" border="0"><tbody><tr><th align="LEFT" valign="TOP" colspan="3"><b>Revision History</b></th></tr><tr><td align="LEFT">Revision 1.10</td><td align="LEFT">2006-03-16</td><td align="LEFT">Revised by: AI</td></tr><tr><td align="LEFT" colspan="3">Changed the license from the GFDL to the GPL. Fixed usage
+	    of dlerror; thanks to Carmelo Piccione. Using a virtual destructor
+	    in the example; thanks to Joerg Knobloch. Added Source Code
+	    section. Minor fixes.</td></tr><tr><td align="LEFT">Revision 1.03</td><td align="LEFT">2003-08-12</td><td align="LEFT">Revised by: AI</td></tr><tr><td align="LEFT" colspan="3">Added reference to the GLib Dynamic Module
+	  Loader.  Thanks to G. V. Sriraam for the pointer.</td></tr><tr><td align="LEFT">Revision 1.02</td><td align="LEFT">2002-12-08</td><td align="LEFT">Revised by: AI</td></tr><tr><td align="LEFT" colspan="3">Added FAQ.  Minor changes</td></tr><tr><td align="LEFT">Revision 1.01</td><td align="LEFT">2002-06-30</td><td align="LEFT">Revised by: AI</td></tr><tr><td align="LEFT" colspan="3">Updated virtual destructor explanation.  Minor changes.</td></tr><tr><td align="LEFT">Revision 1.00</td><td align="LEFT">2002-06-19</td><td align="LEFT">Revised by: AI</td></tr><tr><td align="LEFT" colspan="3">Moved copyright and license section to the
+	beginning.  Added terms section.  Minor changes.</td></tr><tr><td align="LEFT">Revision 0.97</td><td align="LEFT">2002-06-19</td><td align="LEFT">Revised by: JYG</td></tr><tr><td align="LEFT" colspan="3">Entered minor grammar and sentence level changes.</td></tr><tr><td align="LEFT">Revision 0.96</td><td align="LEFT">2002-06-12</td><td align="LEFT">Revised by: AI</td></tr><tr><td align="LEFT" colspan="3">Added bibliography.  Corrected explanation of extern
+          functions and variables.</td></tr><tr><td align="LEFT">Revision 0.95</td><td align="LEFT">2002-06-11</td><td align="LEFT">Revised by: AI</td></tr><tr><td align="LEFT" colspan="3">Minor improvements.</td></tr></tbody></table></div><div><div class="abstract"><a name="AEN52"></a><p></p><p>How to dynamically load C++ functions and classes using
+      the <tt class="function">dlopen</tt> API.</p><p></p></div></div><hr></div><div class="TOC"><dl><dt><b>Table of Contents</b></dt><dt>1. <a href="#intro">Introduction</a></dt><dd><dl><dt>1.1. <a href="#copyright">Copyright and License</a></dt><dt>1.2. <a href="#disclaimer">Disclaimer</a></dt><dt>1.3. <a href="#credits">Credits / Contributors</a></dt><dt>1.4. <a href="#feedback">Feedback</a></dt><dt>1.5. <a href="#AEN91">Terms Used in this Document</a></dt></dl></dd><dt>2. <a href="#theproblem">The Problem</a></dt><dd><dl><dt>2.1. <a href="#mangling">Name Mangling</a></dt><dt>2.2. <a href="#AEN137">Classes</a></dt></dl></dd><dt>3. <a href="#thesolution">The Solution</a></dt><dd><dl><dt>3.1. <a href="#externC"><tt class="literal">extern "C"</tt></a></dt><dt>3.2. <a href="#loadingfunctions">Loading Functions</a></dt><dt>3.3. <a href="#loadingclasses">Loading Classes</a></dt></dl></dd><dt>4. <a href="#source">Source Code</a></dt><dt>5. <a href="#faq">Frequently Asked Questions</a></dt><dt>6. <a href="#seealso">See Also</a></dt><dt><a href="#AEN304">Bibliography</a></dt></dl></div><div class="section"><h1 class="section" id="5a167f5b-b6b2-0a60-6fae-032f41027b60"><a name="intro"></a>1. Introduction</h1><p>      A question which frequently arises among Unix C++ programmers is
+      how to load C++ functions and classes dynamically using the
+      <tt class="function">dlopen</tt> API.
+    </p><p>In fact, that is not always simple and needs some
+      explanation.  That's what this mini HOWTO does.</p><p>An average understanding of the <span class="systemitem">C</span>
+      and <span class="systemitem">C++</span> programming language and of the
+      <tt class="function">dlopen</tt> API is necessary to understand this
+      document.</p><p>This HOWTO's master location is <a href="http://www.isotton.com/howtos/C++-dlopen-mini-HOWTO/" target="_top">http://www.isotton.com/howtos/C++-dlopen-mini-HOWTO/</a>.</p><div class="section"><hr><h2 class="section" id="172a815f-2fba-12a2-58c5-081b2839b4d3"><a name="copyright"></a>1.1. Copyright and License</h2><p>This document, <em>C++ dlopen mini HOWTO</em>, is
+	  copyrighted (c) 2002-2006 by <em>Aaron Isotton</em>.
+	  Permission is granted to copy, distribute and/or modify this
+	  document under the terms of the GNU General Public License, Version
+	  2, as published by the Free Software Foundation.</p></div><div class="section"><hr><h2 class="section" id="04205e4b-f0e9-f24a-16b3-5ea654cdf3f0"><a name="disclaimer"></a>1.2. Disclaimer</h2><p>        No liability for the contents of this document can be
+        accepted.  Use the concepts, examples and information at your
+        own risk.  There may be errors and inaccuracies, that could be
+        damaging to your system.  Proceed with caution, and although
+        this is highly unlikely, the author(s) do not take any
+        responsibility.
+      </p><p>        All copyrights are held by their by their respective owners,
+        unless specifically noted otherwise.  Use of a term in this
+        document should not be regarded as affecting the validity of
+        any trademark or service mark.  Naming of particular products
+        or brands should not be seen as endorsements.
+      </p></div><div class="section"><hr><h2 class="section" id="0ba3573f-34ea-abbb-1efb-8e8dc34105c8"><a name="credits"></a>1.3. Credits / Contributors</h2><p>        In this document, I have the pleasure of acknowledging (in
+        alphabetic order):
+      </p><p></p><ul><li><p>Joy Y Goodreau <tt class="email">&lt;<a href="mailto:joyg (at) us.ibm.com">joyg (at) us.ibm.com</a>&gt;</tt> for
+            her editing.</p></li><li><p>D. Stimitis <tt class="email">&lt;<a href="mailto:stimitis (at) idcomm.com">stimitis (at) idcomm.com</a>&gt;</tt>
+            for pointing out a few issues with the formatting and the
+            name mangling, as well as pointing out a few subtleties of
+	    <tt class="literal">extern "C"</tt>.</p><p>Many unnamed others pointing out errors or giving tips to
+	    improve this howto. You know who you are!</p></li></ul></div><div class="section"><hr><h2 class="section" id="e15b6230-72f4-0f6f-2d10-cd4e8e966c94"><a name="feedback"></a>1.4. Feedback</h2><p>        Feedback is most certainly welcome for this document. Send
+        your additions, comments and criticisms to the following email
+        address: <tt class="email">&lt;<a href="mailto:aaron@isotton.com">aaron@isotton.com</a>&gt;</tt>.
+      </p></div><div class="section"><hr><h2 class="section" id="3d6721ea-b627-add0-5a54-2aad9bc03b61"><a name="AEN91"></a>1.5. Terms Used in this Document</h2><p></p><div class="variablelist"><dl><dt><tt class="function">dlopen</tt> API</dt><dd><p>The <tt class="function">dlclose</tt>,
+              <tt class="function">dlerror</tt>,
+              <tt class="function">dlopen</tt> and
+              <tt class="function">dlsym</tt> functions as described in the
+              <tt class="literal">dlopen(3)</tt> man page.</p><p>Notice that we use
+              <span class="QUOTE">"<tt class="function">dlopen</tt>"</span> to refer to
+              the individual <tt class="function">dlopen</tt>
+              <em>function</em>, and
+              <span class="QUOTE">"<tt class="function">dlopen</tt> API"</span> to refer
+              to the <em>entire API</em>.</p></dd></dl></div></div></div><div class="section"><hr><h1 class="section" id="fa42a2a4-6873-9f02-3341-08c851becec1"><a name="theproblem"></a>2. The Problem</h1><p>At some time you might have to load a library (and use its
+      functions) at runtime; this happens most often when you are
+      writing some kind of plug-in or module architecture for your
+      program.</p><p>In the C language, loading a library is very simple (calling
+      <tt class="function">dlopen</tt>, <tt class="function">dlsym</tt> and
+      <tt class="function">dlclose</tt> is enough), with C++ this is a bit
+      more complicated.  The difficulties of loading a C++ library
+      dynamically are partially due to <a href="#mangling">name
+      mangling</a>, and partially due to the fact that the
+      <tt class="function">dlopen</tt> API was written with C in mind, thus
+      not offering a suitable way to load classes.</p><p>Before explaining how to load libraries in C++, let's better
+      analyze the problem by looking at name mangling in more
+      detail. I recommend you read the explanation of name mangling,
+      even if you're not interested in it because it will help you
+      understanding why problems occur and how to solve them.</p><div class="section"><hr><h2 class="section" id="9d22f72a-353e-bd2a-bf1c-229eabb31d58"><a name="mangling"></a>2.1. Name Mangling</h2><p>In every C++ program (or library, or object file), all
+        non-static functions are represented in the binary file as
+        <em>symbols</em>. These symbols are special text
+        strings that uniquely identify a function in the program,
+        library, or object file.</p><p>In C, the symbol name is the same as the function name:
+        the symbol of <tt class="function">strcpy</tt> will be
+        <tt class="computeroutput">strcpy</tt>, and so on. This is
+        possible because in C no two non-static functions can have the
+        same name.</p><p>Because C++ allows overloading (different functions with
+        the same name but different arguments) and has many features C
+        does not — like classes, member functions, exception
+        specifications — it is not possible to simply use the
+        function name as the symbol name.  To solve that, C++ uses
+        so-called <em>name mangling</em>, which transforms
+        the function name and all the necessary information (like the
+        number and size of the arguments) into some weird-looking
+        string which only the compiler knows about.  The mangled name
+        of <tt class="function">foo</tt> might look like
+        <tt class="computeroutput">foo@4%6^</tt>, for example.  Or it
+        might not even contain the word <span class="QUOTE">"foo"</span>.</p><p> One of the problems with name mangling is that the C++
+        standard (currently [<span class="citation">ISO14882</span>]) does not
+        define how names have to be mangled; thus every compiler
+        mangles names in its own way. Some compilers even change their
+        name mangling algorithm between different versions (notably
+        g++ 2.x and 3.x).  Even if you worked out how your particular
+        compiler mangles names (and would thus be able to load
+        functions via <tt class="function">dlsym</tt>), this would most
+        probably work with your compiler only, and might already be
+        broken with the next version.</p></div><div class="section"><hr><h2 class="section" id="4a4523b4-a4db-fd17-0720-ff2ed48d8c10"><a name="AEN137"></a>2.2. Classes</h2><p>Another problem with the <tt class="function">dlopen</tt> API
+        is the fact that it only supports loading
+        <em>functions</em>. But in C++ a library often
+        exposes a class which you would like to use in your
+        program. Obviously, to use that class you need to create an
+        instance of it, but that cannot be easily done.</p></div></div><div class="section"><hr><h1 class="section" id="f48c90db-353f-e101-24f1-25798e09f010"><a name="thesolution"></a>3. The Solution</h1><div class="section"><h2 class="section" id="78d1eb98-bf24-7742-3aa8-b5b72f8bd90b"><a name="externC"></a>3.1. <tt class="literal">extern "C"</tt></h2><p>C++ has a special keyword to declare a function with C
+        bindings: <tt class="literal">extern "C"</tt>. A function declared
+        as <tt class="literal">extern "C"</tt> uses the function name as
+        symbol name, just as a C function. For that reason, only
+        non-member functions can be declared as <tt class="literal">extern
+        "C"</tt>, and they cannot be overloaded.</p><p>Although there are severe limitations, <tt class="literal">extern
+        "C"</tt> functions are very useful because they can be
+        dynamically loaded using <tt class="function">dlopen</tt> just like
+        a C function.</p><p>This does <em>not</em> mean that functions
+        qualified as <tt class="literal">extern "C"</tt> cannot contain C++
+        code. Such a function is a full-featured C++ function which
+        can use C++ features and take any type of argument.</p></div><div class="section"><hr><h2 class="section" id="4236aa54-2b4b-987a-f5ce-40a2b1b9f777"><a name="loadingfunctions"></a>3.2. Loading Functions</h2><p>In C++ functions are loaded just like in C, with
+        <tt class="function">dlsym</tt>. The functions you want to load
+        must be qualified as <tt class="literal">extern "C"</tt> to avoid
+        the symbol name being mangled.</p><div class="example"><a name="AEN162"></a><p><b>Example 1. Loading a Function</b></p><p>main.cpp:</p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">#include &lt;iostream&gt;
+#include &lt;dlfcn.h&gt;
+
+int main() {
+    using std::cout;
+    using std::cerr;
+
+    cout &lt;&lt; "C++ dlopen demo\n\n";
+
+    // open the library
+    cout &lt;&lt; "Opening hello.so...\n";
+    void* handle = dlopen("./hello.so", RTLD_LAZY);
+    
+    if (!handle) {
+        cerr &lt;&lt; "Cannot open library: " &lt;&lt; dlerror() &lt;&lt; '\n';
+        return 1;
+    }
+    
+    // load the symbol
+    cout &lt;&lt; "Loading symbol hello...\n";
+    typedef void (*hello_t)();
+
+    // reset errors
+    dlerror();
+    hello_t hello = (hello_t) dlsym(handle, "hello");
+    const char *dlsym_error = dlerror();
+    if (dlsym_error) {
+        cerr &lt;&lt; "Cannot load symbol 'hello': " &lt;&lt; dlsym_error &lt;&lt;
+            '\n';
+        dlclose(handle);
+        return 1;
+    }
+    
+    // use it to do the calculation
+    cout &lt;&lt; "Calling hello...\n";
+    hello();
+    
+    // close the library
+    cout &lt;&lt; "Closing library...\n";
+    dlclose(handle);
+}</pre></font></td></tr></tbody></table><p>hello.cpp:</p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">#include &lt;iostream&gt;
+
+extern "C" void hello() {
+    std::cout &lt;&lt; "hello" &lt;&lt; '\n';
+}
+</pre></font></td></tr></tbody></table></div><p>The function <tt class="function">hello</tt> is defined in
+        <tt class="filename">hello.cpp</tt>as <tt class="literal">extern
+          "C"</tt>; it is loaded in <tt class="filename">main.cpp</tt>
+        with the <tt class="function">dlsym</tt> call. The function must be
+        qualified as <tt class="literal">extern "C"</tt> because otherwise
+        we wouldn't know its symbol name.</p><div class="warning"><p></p><table class="warning" width="100%" border="0"><tbody><tr><td width="25" align="CENTER" valign="TOP"><img data-savepage-src="../images/warning.gif" src="data:image/gif;base64,R0lGODdhGAAYAPcAAAgAABAAABgAACEAACkAADEAAEIAAEoAAFIAAFoAAGsAAHMAAHsAAIQAAIwAAJQAAJR7e5xSUpxaWpx7e6UAAKU5OaVKSqWEhKWUlKWlpa0AAK0xMa2UlLUAALUpKbWMjLWcnLWlpbW1tb0AAL2trb21tcYAAMYQEMYYGMbGxs4AAM4QEM4YGM4pKdYAANYpKdbW1t4AAN7e3ucAAOchIefn5+8AAO8ICO/v7/cAAPf39/8AAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ywAAAAAGAAYAAAI/gB5CBzIQwaMgwgR4iDIcGCKCB42RJy4YQOHhQ0HirBwI4fHjx9RXMyII0WFjiBT5kBxASPBFBJQqkyJIoNLHiJOquzwwIVKlhhTcFQ5gkCABDJDXpQRIenHBwECEPD5MwSMDTNzaBAQwECMmTcgwPCQ1cQAAAicegx7NWuMAgEWZGVLduaMAwEczBWLNSuCABT2js2aQ4EADYL7zhzRgKpKullnMECAGCwEGYpTaojqdWYLDDhAoJjZYUCAAzNUvpggg0fo0TsbqFB9obVAHBxOEE5J4zJDHSJ0787xAsLNgbhhZ31RO+Nt0TdmRJ8+o4Vv5wJ1kJjAvTt3DLYJAgYEADs=" hspace="5" alt="Warning"></td><td align="LEFT" valign="TOP"><p>There are two different forms of the
+          <tt class="literal">extern "C"</tt> declaration: <tt class="literal">extern
+            "C"</tt> as used above, and <tt class="literal">extern "C" {
+            … }</tt> with the declarations between the
+          braces. The first (inline) form is a declaration with extern
+          linkage and with C language linkage; the second only affects
+          language linkage. The following two declarations are thus
+          equivalent:
+          
+          </p><div class="informalexample"><a name="AEN180"></a><p></p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">extern "C" int foo;
+extern "C" void bar();
+            </pre></font></td></tr></tbody></table><p></p></div>
+            and
+          <div class="informalexample"><a name="AEN182"></a><p></p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">extern "C" {
+     extern int foo;
+     extern void bar();
+}</pre></font></td></tr></tbody></table><p></p></div>
+
+          As there is no difference between an
+          <tt class="literal">extern</tt> and a
+          non-<tt class="literal">extern</tt> <em>function</em>
+          declaration, this is no problem as long as you are not
+          declaring any variables. If you declare
+          <em>variables</em>, keep in mind that
+
+          <div class="informalexample"><a name="AEN188"></a><p></p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">extern "C" int foo;</pre></font></td></tr></tbody></table><p></p></div>
+            and
+          <div class="informalexample"><a name="AEN190"></a><p></p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">extern "C" {
+    int foo;
+}</pre></font></td></tr></tbody></table><p></p></div>
+          
+          are <em>not</em> the same thing.<p></p><p>For further clarifications, refer to
+          [<span class="citation">ISO14882</span>], 7.5, with special attention
+          to paragraph 7, or to [<span class="citation">STR2000</span>],
+          paragraph 9.2.4.</p><p>Before doing fancy things with extern variables, peruse
+          the documents listed in the <a href="#seealso">see
+          also</a> section.</p></td></tr></tbody></table></div></div><div class="section"><hr><h2 class="section" id="d4e3e87e-5a1e-6420-ad15-062f66e94e1a"><a name="loadingclasses"></a>3.3. Loading Classes</h2><p>Loading classes is a bit more difficult because we need
+        an <em>instance</em> of a class, not just a
+        pointer to a function.</p><p>We cannot create the instance of the class using
+        <tt class="literal">new</tt> because the class is not defined in the
+        executable, and because (under some circumstances) we don't
+        even know its name.</p><p>The solution is achieved through polymorphism. We define a
+        base, <em>interface</em> class with virtual
+        members <em>in the executable</em>, and a derived,
+        <em>implementation</em> class <em>in the
+          module</em>. Generally the interface class is
+        abstract (a class is abstract if it has pure virtual
+        functions).</p><p>As dynamic loading of classes is generally used for
+        plug-ins — which must expose a clearly defined interface
+        — we would have had to define an interface and derived
+        implementation classes anyway.</p><p>Next, while still in the module,  we define two additional helper
+        functions, known as <em>class factory
+	    functions</em>. One of these functions creates an instance of 
+	the class and returns a pointer to it. The other function takes a
+        pointer to a class created by the factory and destroys
+        it. These two functions are qualified as <tt class="literal">extern
+          "C"</tt>.</p><p>To use the class from the module, load the two factory
+        functions using <tt class="function">dlsym</tt> just <a href="#loadingfunctions">as we loaded the the hello
+        function</a>; then, we can create and destroy as many
+        instances as we wish.</p><div class="example"><a name="AEN216"></a><p><b>Example 2. Loading a Class</b></p><p>Here we use a generic <tt class="classname">polygon</tt>
+          class as interface and the derived class
+          <tt class="classname">triangle</tt> as implementation.</p><p>main.cpp:</p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">#include "polygon.hpp"
+#include &lt;iostream&gt;
+#include &lt;dlfcn.h&gt;
+
+int main() {
+    using std::cout;
+    using std::cerr;
+
+    // load the triangle library
+    void* triangle = dlopen("./triangle.so", RTLD_LAZY);
+    if (!triangle) {
+        cerr &lt;&lt; "Cannot load library: " &lt;&lt; dlerror() &lt;&lt; '\n';
+        return 1;
+    }
+
+    // reset errors
+    dlerror();
+    
+    // load the symbols
+    create_t* create_triangle = (create_t*) dlsym(triangle, "create");
+    const char* dlsym_error = dlerror();
+    if (dlsym_error) {
+        cerr &lt;&lt; "Cannot load symbol create: " &lt;&lt; dlsym_error &lt;&lt; '\n';
+        return 1;
+    }
+    
+    destroy_t* destroy_triangle = (destroy_t*) dlsym(triangle, "destroy");
+    dlsym_error = dlerror();
+    if (dlsym_error) {
+        cerr &lt;&lt; "Cannot load symbol destroy: " &lt;&lt; dlsym_error &lt;&lt; '\n';
+        return 1;
+    }
+
+    // create an instance of the class
+    polygon* poly = create_triangle();
+
+    // use the class
+    poly-&gt;set_side_length(7);
+        cout &lt;&lt; "The area is: " &lt;&lt; poly-&gt;area() &lt;&lt; '\n';
+
+    // destroy the class
+    destroy_triangle(poly);
+
+    // unload the triangle library
+    dlclose(triangle);
+}</pre></font></td></tr></tbody></table><p>polygon.hpp:</p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">#ifndef POLYGON_HPP
+#define POLYGON_HPP
+
+class polygon {
+protected:
+    double side_length_;
+
+public:
+    polygon()
+        : side_length_(0) {}
+
+    virtual ~polygon() {}
+
+    void set_side_length(double side_length) {
+        side_length_ = side_length;
+    }
+
+    virtual double area() const = 0;
+};
+
+// the types of the class factories
+typedef polygon* create_t();
+typedef void destroy_t(polygon*);
+
+#endif</pre></font></td></tr></tbody></table><p>triangle.cpp:</p><table border="0" bgcolor="#E0E0E0" width="100%"><tbody><tr><td><font color="#000000"><pre class="programlisting">#include "polygon.hpp"
+#include &lt;cmath&gt;
+
+class triangle : public polygon {
+public:
+    virtual double area() const {
+        return side_length_ * side_length_ * sqrt(3) / 2;
+    }
+};
+
+
+// the class factories
+
+extern "C" polygon* create() {
+    return new triangle;
+}
+
+extern "C" void destroy(polygon* p) {
+    delete p;
+}
+</pre></font></td></tr></tbody></table></div><p>There are a few things to note when loading classes:</p><p></p><ul><li><p>You must provide <em>both</em> a creation
+            and a destruction function; you must
+            <em>not</em> destroy the instances using
+            <tt class="literal">delete</tt> from inside the executable, but
+            always pass it back to the module. This is due to the fact
+            that in C++ the operators <tt class="literal">new</tt> and
+            <tt class="literal">delete</tt> may be overloaded; this would
+            cause a non-matching <tt class="literal">new</tt> and
+            <tt class="literal">delete</tt> to be called, which could cause
+            anything from nothing to memory leaks and segmentation
+            faults. The same is true if different standard libraries
+            are used to link the module and the executable.</p></li><li><p>The destructor of the interface class should be
+            virtual in any case.  There <em>might</em> be
+            very rare cases where that would not be necessary, but it
+            is not worth the risk, because the additional overhead can
+            generally be ignored.</p><p>If your base class needs no destructor, define an
+            empty (and <tt class="literal">virtual</tt>) one anyway;
+            otherwise you <em>will have problems</em>
+            sooner or later; I can guarantee you that.  You can read
+            more about this problem in the comp.lang.c++ FAQ at <a href="http://www.parashift.com/c++-faq-lite/" target="_top">http://www.parashift.com/c++-faq-lite/</a>, in
+            section 20.</p></li></ul></div></div><div class="section"><hr><h1 class="section" id="9343d121-5e20-044e-5905-07653d70f8c2"><a name="source"></a>4. Source Code</h1><p>You can download all the source code presented in this howto as an
+	  archive: <a href="examples.tar.gz" target="_top">examples.tar.gz</a>.</p></div><div class="section"><hr><h1 class="section" id="8c009cf0-b172-e79e-7425-d166fc2c2123"><a name="faq"></a>5. Frequently Asked Questions</h1><div class="qandaset"><dl><dt>5.1. <a href="#AEN253">I'm using Windows and I can't find the
+          <tt class="filename">dlfcn.h</tt> header file!  What's the problem?</a></dt><dt>5.2. <a href="#AEN263">Is there some kind of <tt class="function">dlopen</tt>-compatible
+	    wrapper for the Windows <tt class="function">LoadLibrary</tt>
+	    API?</a></dt></dl><div class="qandaentry"><div class="question"><p><a name="AEN253"></a><b>5.1. </b>I'm using Windows and I can't find the
+          <tt class="filename">dlfcn.h</tt> header file!  What's the problem?</p></div><div class="answer"><p><b> </b>The problem is that Windows doesn't have the
+		<tt class="function">dlopen</tt> API, and thus there is no
+          <tt class="filename">dlfcn.h</tt> header.  There is a similar API
+          around the <tt class="function">LoadLibrary</tt> function, and
+          most of what is written here applies to it, too. Please refer to the
+	  <a href="http://msdn.microsoft.com/" target="_top">Microsoft Developer Network
+	      Website</a> for more information.</p></div></div><div class="qandaentry"><div class="question"><p><a name="AEN263"></a><b>5.2. </b>Is there some kind of <tt class="function">dlopen</tt>-compatible
+	    wrapper for the Windows <tt class="function">LoadLibrary</tt>
+	    API?</p></div><div class="answer"><p><b> </b>I don't know of any, and I don't think there'll ever be one
+	    supporting all of <tt class="function">dlopen</tt>'s options.</p><p>There are alternatives though: libtltdl (a part of libtool),
+	    which wraps a variety of different dynamic loading APIs, among
+	    others <tt class="function">dlopen</tt> and
+	    <tt class="function">LoadLibrary</tt>.  Another one is the <a href="http://developer.gnome.org/doc/API/glib/glib-dynamic-loading-of-modules.html" target="_top">Dynamic
+	      Module Loading functionality of GLib</a>.  You can use one
+	    of these to ensure better possible cross-platform compatibility.
+	    I've never used any of them, so I can't tell you how stable they
+	    are and whether they really work.</p><p>You should also read section 4, <span class="QUOTE">"Dynamically
+          Loaded (DL) Libraries"</span>, of the <a href="http://www.dwheeler.com/program-library" target="_top">Program Library
+            HOWTO</a> for more techniques to load libraries and
+          create classes independently of your platform.</p></div></div></div></div><div class="section"><hr><h1 class="section" id="17c8db50-650f-4eba-4681-59dd39ccfb77"><a name="seealso"></a>6. See Also</h1><p></p><ul><li><p>The <tt class="function">dlopen(3)</tt> man page. It explains
+          the purpose and the use of the <tt class="function">dlopen</tt>
+          API.</p></li><li><p>The article <a href="http://www.linuxjournal.com/article.php?sid=3687" target="_top">            <i class="citetitle">Dynamic Class Loading for C++ on
+              Linux</i></a> by James Norton published on the
+          <a href="http://www.linuxjournal.com/" target="_top">Linux
+            Journal</a>.</p></li><li><p>Your favorite C++ reference about <tt class="literal">extern
+            "C"</tt>, inheritance, virtual functions,
+          <tt class="literal">new</tt> and <tt class="literal">delete</tt>. I
+          recommend [<span class="citation">STR2000</span>].</p></li><li><p>[<span class="citation">ISO14882</span>]</p></li><li><p>The <a href="http://www.dwheeler.com/program-library" target="_top">Program Library
+            HOWTO</a>, which tells you most things you'll ever need
+          about static, shared and dynamically loaded libraries and how
+          to create them.  Highly recommended.</p></li><li><p>The <a href="http://tldp.org/HOWTO/GCC-HOWTO/index.html" target="_top">Linux GCC
+            HOWTO</a> to learn more about how to create libraries
+            with GCC.</p></li></ul></div><a name="AEN304"></a><hr><h1 id="ce7c3cf6-1f66-ea1e-0473-df2f749fbd1f"><a name="AEN304"></a>Bibliography</h1><div class="bibliomixed"><a name="AEN305"></a><p class="bibliomixed">      ISO14482 <i>ISO/IEC 14482-1998 — The
+        C++ Programming Language</i>. Available as
+        PDF and as printed book from <a href="http://webstore.ansi.org/" target="_top">http://webstore.ansi.org/</a>.
+    </p></div><div class="bibliomixed"><a name="AEN310"></a><p class="bibliomixed">      STR2000
+      <span class="AUTHOR">Bjarne Stroustrup</span>
+      <i>The C++ Programming Language</i>, Special
+        Edition.
+      ISBN 0-201-70073-5.
+      Addison-Wesley.
+    </p></div></div><div id="table-of-contents-sidebar-id" class="table-of-contents-sidebar-fixed-sidebar"><span><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/left.png" src="" id="table-of-contents-sidebar-position-id" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/unpin.png" src="" id="table-of-contents-sidebar-pin-id" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/bug.png" src="" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/star.png" src="" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/code.png" src="" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><br></span><ul id="table-of-contents-sidebar-list-container-id"><li class="ANCHOR-1"><a href="#c3de99b6-9e6a-5720-3346-c0bf1566b892">C++ dlopen mini HOWTO</a></li><li class="ANCHOR-2"><a href="#575f40b3-0c33-aad0-0b48-7c83589b7d50">Aaron Isotton</a></li><li class="ANCHOR-1"><a href="#5a167f5b-b6b2-0a60-6fae-032f41027b60">1. Introduction</a></li><li class="ANCHOR-2"><a href="#172a815f-2fba-12a2-58c5-081b2839b4d3">1.1. Copyright and License</a></li><li class="ANCHOR-2"><a href="#04205e4b-f0e9-f24a-16b3-5ea654cdf3f0">1.2. Disclaimer</a></li><li class="ANCHOR-2"><a href="#0ba3573f-34ea-abbb-1efb-8e8dc34105c8">1.3. Credits / Contributors</a></li><li class="ANCHOR-2"><a href="#e15b6230-72f4-0f6f-2d10-cd4e8e966c94">1.4. Feedback</a></li><li class="ANCHOR-2"><a href="#3d6721ea-b627-add0-5a54-2aad9bc03b61">1.5. Terms Used in this Document</a></li><li class="ANCHOR-1"><a href="#fa42a2a4-6873-9f02-3341-08c851becec1">2. The Problem</a></li><li class="ANCHOR-2"><a href="#9d22f72a-353e-bd2a-bf1c-229eabb31d58">2.1. Name Mangling</a></li><li class="ANCHOR-2"><a href="#4a4523b4-a4db-fd17-0720-ff2ed48d8c10">2.2. Classes</a></li><li class="ANCHOR-1"><a href="#f48c90db-353f-e101-24f1-25798e09f010">3. The Solution</a></li><li class="ANCHOR-2"><a href="#78d1eb98-bf24-7742-3aa8-b5b72f8bd90b">3.1. extern "C"</a></li><li class="ANCHOR-2"><a href="#4236aa54-2b4b-987a-f5ce-40a2b1b9f777">3.2. Loading Functions</a></li><li class="ANCHOR-2"><a href="#d4e3e87e-5a1e-6420-ad15-062f66e94e1a">3.3. Loading Classes</a></li><li class="ANCHOR-1"><a href="#9343d121-5e20-044e-5905-07653d70f8c2">4. Source Code</a></li><li class="ANCHOR-1"><a href="#8c009cf0-b172-e79e-7425-d166fc2c2123">5. Frequently Asked Questions</a></li><li class="ANCHOR-1"><a href="#17c8db50-650f-4eba-4681-59dd39ccfb77">6. See Also</a></li><li class="ANCHOR-1"><a href="#ce7c3cf6-1f66-ea1e-0473-df2f749fbd1f">Bibliography</a></li></ul><span class="copyright">Powered by <a href="https://yiting.myportfolio.com?utm_source=toc" target="_blank">Yiting</a> &amp; <a href="http://www.majiang.life?utm_source=toc" target="_blank">Majiang</a></span><div id="table-of-contents-sidebar-fixed-sidebar-tooltip"></div></div><img id="table-of-contents-sidebar-hover-menu-id" data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/ic_normal.png" src="" class="table-of-contents-sidebar-menu" style="right: 18px;"></body></html>

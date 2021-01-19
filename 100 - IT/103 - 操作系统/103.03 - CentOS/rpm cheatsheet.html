@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head>
+<link rel="icon" data-savepage-href="" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACGAAAAeAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAA4QAAAJgAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABUAAAAJAAAAAAAAAAAAAAAeAAAAvgAAAP8AAAB8AAAAVgAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAgAAADMAAACVAAAAmgAAAD0AAABHAAAAuwAAAP8AAAD6AAAAWAAAAGQAAABNAAAACwAAAAAAAAAAAAAAAAAAACwAAAA9AAAAggAAAP8AAADzAAAA9QAAAP8AAAD/AAAA5gAAADEAAABEAAAAKwAAAEUAAAADAAAAAAAAAA4AAABMAAAABgAAAHAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAALIAAAAVAAAARQAAAAEAAAA/AAAAJAAAAAAAAAAzAAAAMQAAAAAAAABJAAAA+AAAAP8AAAD/AAAA/wAAAPsAAABdAAAAGQAAAD4AAAAAAAAAFgAAAEUAAAAAAAAASgAAABcAAAAAAAAAIwAAAOIAAAD/AAAA/wAAAP8AAADJAAAAFAAAADQAAAAnAAAAAAAAAAQAAABJAAAACwAAAFAAAAANAAAAAAAAAA4AAADIAAAA/wAAAP8AAAD5AAAAYQAAAAAAAAAcAAAACAAAAAAAAAAAAAAARAAAABMAAABPAAAAEAAAAAAAAAAGAAAAtgAAAP8AAAD/AAAAtgAAAA4AAAAAAAAAAQAAAAUAAAAAAAAAAQAAAEYAAAAQAAAARAAAAB8AAAAAAAAABQAAALIAAAD/AAAA/QAAAF4AAAAAAAAADwAAAAsAAACFAAAAPAAAAAYAAABKAAAABgAAACUAAAA/AAAAAAAAAAIAAACmAAAA/wAAAPkAAABLAAAABQAAAFYAAAAhAAAAgAAAACAAAAAjAAAAPAAAAAAAAAAEAAAASQAAABoAAAAAAAAAawAAAP0AAAD/AAAAkgAAAAoAAAAQAAAAbwAAAEQAAAAEAAAATAAAABQAAAAAAAAAAAAAABUAAABOAAAAEgAAABQAAACsAAAA/QAAAPcAAAC+AAAAuQAAAJEAAAARAAAAQgAAAC4AAAAAAAAAAAAAAAAAAAAAAAAAGgAAAE0AAAApAAAAGgAAAF4AAACSAAAAmQAAAGkAAAAsAAAASAAAAC8AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAAAAPwAAAFMAAABIAAAAQwAAAEgAAABPAAAASgAAABsAAAAAAAAAAAAAAAAAAAAA/w8AAP8PAADGBwAAgAMAAIABAAAAAQAAIAgAACAIAAAgTAAAIEAAACCAAAAgAQAAEAEAAIADAADAAwAA4AcAAA==">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Linux rpm command cheat sheet</title>
+<style type="text/css" media="screen">
+	/*savepage-import-url=https://www.cyberciti.biz/howto/question/newclean.css*/body { background-color: #ffffff; font: normal 85% "arial", "helvetica", sans-serif;}
+
+h1 {margin: 0; margin-bottom: 0px; padding: 5px; color: #60834A;  }
+a {color: #0066cc; text-decoration: underline;}
+a:hover {color: #dd0000;}
+
+h3 {margin: 0; color: #666666; border-bottom: solid 1px #60834A;}
+h4 {color: #666666;}
+
+#toplinks {float: right;}
+#left h3 {margin: 0; color: #666666; border-bottom: solid 2px #60834A; text-align: center;}
+
+.header {
+	    padding: 10px; 
+        margin-bottom: 10px; 
+        padding: 2px; 
+        color: #60834A; 
+        border: solid 1px #60834A; 
+        border-top: solid 5px #60834A; 
+    	height: 40px;
+       background-color: #E7EFE7;
+}
+
+.quote {
+	margin-left: 10px;
+	padding-left: 15px;
+	display: block;
+	background-repeat: no-repeat;
+}
+
+.code {
+	font-family: Courier;
+	margin-left: 20px;
+	margin-right: 5px;
+	padding: 10px;
+	display: block;
+	background-color: #eeeeee;
+	border: 1px solid #60834A;
+}
+
+
+pre.code { 
+            width: 90%; 
+            padding: 7px; border: 
+            solid 1px #60834A; 
+            background-color: #eeeeee; 
+            overflow:	auto;
+         }
+#footer {clear: both; margin-top: 30px; text-align: center; padding: 2px; color: #ff9933; border: solid 1px #60834A; border-bottom: solid 5px #60834A; background-color: #E7EFE7;}
+#footer h5 {margin: 0; color: #666666;}
+
+     </style>
+<script async="" data-savepage-src="https://www.google-analytics.com/analytics.js" src=""></script><script type="text/javascript"></script><meta name="google-site-verification" content="oQAwJ5x8VLFhvc1DNXq_pHA0r2sF88et2Dv6hWNjzhg">
+<script type="text/javascript"></script>
+<link href="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/table-of-contents-sidebar.css" type="text/css" rel="stylesheet">
+<style id="savepage-cssvariables">
+  :root {
+  }
+</style>
+<script id="savepage-shadowloader" type="application/javascript">
+  "use strict";
+  window.addEventListener("DOMContentLoaded",
+  function(event) {
+    savepage_ShadowLoader(5);
+  },false);
+  function savepage_ShadowLoader(c){createShadowDOMs(0,document.documentElement);function createShadowDOMs(a,b){var i;if(b.localName=="iframe"||b.localName=="frame"){if(a<c){try{if(b.contentDocument.documentElement!=null){createShadowDOMs(a+1,b.contentDocument.documentElement)}}catch(e){}}}else{if(b.children.length>=1&&b.children[0].localName=="template"&&b.children[0].hasAttribute("data-savepage-shadowroot")){b.attachShadow({mode:"open"}).appendChild(b.children[0].content);b.removeChild(b.children[0]);for(i=0;i<b.shadowRoot.children.length;i++)if(b.shadowRoot.children[i]!=null)createShadowDOMs(a,b.shadowRoot.children[i])}for(i=0;i<b.children.length;i++)if(b.children[i]!=null)createShadowDOMs(a,b.children[i])}}}
+</script>
+<script id="savepage-pageinfo-bar-insert" type="application/javascript">
+  "use strict";
+  window.addEventListener('load',function(event) {
+    var parser = new DOMParser();
+    var pageinfodoc = parser.parseFromString('<html> <style id="savepage-pageinfo-bar-style" type="text/css">#savepage-pageinfo-bar-content,#savepage-pageinfo-bar-content *{all:initial!important}#savepage-pageinfo-bar-content,#savepage-pageinfo-bar-content *{font-family:"Segoe UI","Helvetica Neue",Ubuntu,Arial!important;font-size:12px!important;color:black!important;cursor:default!important;-moz-user-select:none!important;-webkit-user-select:none!important}#savepage-pageinfo-bar-content{display:flex!important;position:fixed!important;left:0!important;top:0!important;width:100%!important;height:25px!important;border-bottom:1px solid #E0E0E0!important;background:#F8F8F8!important;overflow:hidden!important;z-index:2147483645!important}#savepage-pageinfo-bar-spacer-1{flex:0 1 auto!important;background:#F8F8F8!important}#savepage-pageinfo-bar-link{flex:0 1 auto!important;padding:4px 0!important;background:#F8F8F8!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}#savepage-pageinfo-bar-link:hover{text-decoration:underline!important}#savepage-pageinfo-bar-spacer-2{flex:1 1 auto!important;background:#F8F8F8!important}#savepage-pageinfo-bar-datetime{flex:0 1000000 auto!important;min-width:0!important;padding:4px 0!important;background:#F8F8F8!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}#savepage-pageinfo-bar-spacer-3{flex:0 1 auto!important;background:#F8F8F8!important}#savepage-pageinfo-bar-button{flex:0 0 25px!important;background-color:#F8F8F8!important;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA8SURBVChTYwCC/0DsAGJgASBxkDycga4QQxxdAEMBDCBLYFUAAyQpIGgVCGAoxBCAAhRxrEZDAVCc4T8AbzkX8F/+uCwAAAAASUVORK5CYII=)!important;background-repeat:no-repeat!important;background-position:center center!important}#savepage-pageinfo-bar-button:hover{background-color:#E8E8E8!important}#savepage-pageinfo-bar-button:active{background-color:#D8D8D8!important}</style> <div id="savepage-pageinfo-bar-content"> <div id="savepage-pageinfo-bar-spacer-1">&nbsp;&nbsp;&nbsp;</div> <a id="savepage-pageinfo-bar-link" href="https://www.cyberciti.biz/howto/question/linux/linux-rpm-cheat-sheet.php" target="_blank">https://www.cyberciti.biz/howto/question/linux/linux-rpm-cheat-sheet.php</a> <div id="savepage-pageinfo-bar-spacer-2">&nbsp;&nbsp;&nbsp;</div> <div id="savepage-pageinfo-bar-datetime">01 Jan 2021&nbsp;&nbsp;&nbsp;16:13:15</div> <div id="savepage-pageinfo-bar-spacer-3">&nbsp;&nbsp;&nbsp;</div> <div id="savepage-pageinfo-bar-button"></div> </div> </html>','text/html');
+    var container = document.createElement('div');
+    container.setAttribute('id','savepage-pageinfo-bar-container');
+    document.documentElement.appendChild(container);
+    container.appendChild(pageinfodoc.getElementById('savepage-pageinfo-bar-style'));
+    container.appendChild(pageinfodoc.getElementById('savepage-pageinfo-bar-content'));
+    document.getElementById('savepage-pageinfo-bar-button').addEventListener('click',function(event) {
+      var container = document.getElementById('savepage-pageinfo-bar-container');
+      document.documentElement.removeChild(container);
+    },false);
+  },false);
+</script>
+<meta name="savepage-url" content="https://www.cyberciti.biz/howto/question/linux/linux-rpm-cheat-sheet.php">
+<meta name="savepage-title" content="Linux rpm command cheat sheet">
+<meta name="savepage-from" content="https://www.cyberciti.biz/howto/question/linux/linux-rpm-cheat-sheet.php">
+<meta name="savepage-date" content="Fri Jan 01 2021 16:13:15 GMT+0800 (China Standard Time)">
+<meta name="savepage-state" content="Standard Items; Retain cross-origin frames; Merge CSS images; Remove unsaved URLs; Remove hidden elements; Allow passive mixed content; Send referer headers with origin only; Max frame depth = 5; Max resource size = 50MB; Max resource time = 15s;">
+<meta name="savepage-version" content="24.1">
+<meta name="savepage-comments" content="">
+  </head>
+<body>
+<div class="header"><h1 id="21479371-bc51-ecfa-e67b-7c53aadfdf1d"><span style="color: #666666; letter-spacing: -2px;">rpm </span> Linux cheat sheet</h1>
+</div>
+
+<form name="form">
+<div id="toplinks">Quick Links:
+  <select name="site" size="1" onchange="if (!window.__cfRLUnblockHandlers) return false; javascript:formHandler()">
+<option value="">Go to...
+</option><option value="https://www.cyberciti.biz/faq/">Linux/UNIX FAQs
+</option><option value="https://www.cyberciti.biz/">Linux/UNIX Tips &amp; tricks
+</option><option value="https://www.nixcraft.com/">Ask a linux question
+</option><option value="https://www.cyberciti.biz/contact_us.php#email">Email
+</option></select>
+</div>
+<div id="crumbs">
+<a href="https://www.cyberciti.biz/" title="nixCraft Home Page">Home</a> »
+<a href="https://www.cyberciti.biz/howto/question/" title="The Section">Questions</a>» <a href="https://www.cyberciti.biz/howto/question/linux/" title="The Question Filed under">Linux</a></div></form>
+<center>
+<script async="" data-savepage-src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" src="" type="text/javascript"></script>
+
+<!--savepage-ins-remove-->
+<script type="text/javascript"></script>
+</center>
+<table width="100%%" border="0" cellspacing="0" cellpadding="2">
+<tbody><tr>
+<td valign="top" width="20%">
+<div id="left">
+<center><center>
+<script async="" data-savepage-src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" src="" type="text/javascript"></script>
+
+<!--savepage-ins-remove-->
+<script type="text/javascript"></script>
+</center>
+</center></div></td><td valign="top" width="1%"></td><td valign="top" width="79%">
+<h3 id="ac0e3e49-d0e7-4292-04d7-5466ff584b3c">rpm command cheat sheet for Linux</h3>
+<p>rpm is a powerful Package Manager for Red Hat, Suse and Fedora Linux. It can be used to build, install, query, verify, update, and remove/erase individual software packages. A Package consists of an archive of files, and package information, including name, version, and description:</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#60834A" width="100%">
+<tbody><tr align="center">
+<td width="33%" bgcolor="#E7EFE7"><b>Syntax</b></td>
+<td width="33%" bgcolor="#E7EFE7"><b>Description</b></td>
+<td width="34%" bgcolor="#E7EFE7"><b>Example(s)</b></td>
+</tr>
+<tr>
+<td width="33%">rpm -ivh {rpm-file}</td>
+<td width="33%">Install the package</td>
+<td width="34%">rpm -ivh mozilla-mail-1.7.5-17.i586.rpm<br>rpm -ivh --test mozilla-mail-1.7.5-17.i586.rpm</td>
+</tr>
+<tr>
+<td width="33%">rpm -Uvh {rpm-file}</td>
+<td width="33%">Upgrade package</td>
+<td width="34%">rpm -Uvh mozilla-mail-1.7.6-12.i586.rpm<br>rpm -Uvh --test mozilla-mail-1.7.6-12.i586.rpm</td>
+</tr>
+<tr>
+<td width="33%">rpm -ev {package}</td>
+<td width="33%">Erase/remove/ an installed package</td>
+<td width="34%">rpm -ev mozilla-mail</td>
+</tr>
+<tr><td width="33%">rpm -ev --nodeps {package}</td>
+<td width="33%">Erase/remove/ an installed package without checking for dependencies</td>
+<td width="34%">rpm -ev --nodeps mozilla-mail</td>
+</tr><tr>
+</tr>
+<tr>
+<td width="33%">rpm -qa</td>
+<td width="33%">Display list all installed packages</td>
+<td width="34%">rpm -qa<br>rpm -qa | less</td>
+</tr>
+<tr>
+<td width="33%">rpm -qi {package}</td>
+<td width="33%">Display installed information along with package version and short description</td>
+<td width="34%">rpm -qi mozilla-mail</td>
+</tr>
+<tr>
+<td width="33%">rpm -qf {/path/to/file}</td>
+<td width="33%">Find out what package a file belongs to i.e. find what package owns the file</td>
+<td width="34%">rpm -qf /etc/passwd<br>rpm -qf /bin/bash</td>
+</tr>
+<tr>
+<td width="33%">rpm -qc {pacakge-name}</td>
+<td width="33%">Display list of configuration file(s) for a package</td>
+<td width="34%">rpm -qc httpd</td>
+</tr>
+<tr>
+<td width="33%">rpm -qcf {/path/to/file}</td>
+<td width="33%">Display list of configuration files for a command</td>
+<td width="34%">rpm -qcf /usr/X11R6/bin/xeyes</td>
+</tr>
+<tr>
+<td width="33%">rpm -qa --last</td>
+<td width="33%">Display list of all recently installed RPMs</td>
+<td width="34%">rpm -qa --last<br>rpm -qa --last | less</td>
+</tr>
+<tr>
+<td width="33%">rpm -qpR {.rpm-file}<br>rpm -qR {package}</td>
+<td width="33%">Find out what dependencies a rpm file has</td>
+<td width="34%">rpm -qpR mediawiki-1.4rc1-4.i586.rpm<br> rpm -qR bash</td>
+</tr>
+</tbody></table>
+<p><font size="1">{package} - Replace with actual package name
+</font>
+</p>
+For more info see:
+<ul>
+<li><a href="https://www.cyberciti.biz/faq/rhel-centos-fedora-linux-yum-command-howto/">yum command: Update / Install Packages Under Redhat Enterprise / CentOS Linux Version 5.x</a></li>
+<li><a href="https://www.cyberciti.biz/faq/howto-use-up2date-command/">up2date command to update Redhat enterprise Linux (RHEL) howto</a></li>
+</ul>
+</td></tr></tbody></table><div id="footer"><h5 id="d575d3f5-5367-d247-47d3-772cc2af634e"> © 2005 <a href="https://www.cyberciti.biz/">nixCraft</a> - <a data-savepage-href="/tips/disclaimer" href="https://www.cyberciti.biz/tips/disclaimer">Disclaimer</a>
+- <a data-savepage-href="/tips/privacy" href="https://www.cyberciti.biz/tips/privacy">Privacy policy</a>
+</h5></div>
+<p align="center">
+<small>
+<a href="https://www.cyberciti.biz/" title="Cool Linux/UNIX tips & Tricks">Tips &amp; Tricks</a> |
+<a href="https://www.cyberciti.biz/tips/contact-us#email" title="Send an email">Email</a>
+</small>
+
+
+</p><div id="table-of-contents-sidebar-id" class="table-of-contents-sidebar-fixed-sidebar"><span><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/left.png" src="" id="table-of-contents-sidebar-position-id" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/unpin.png" src="" id="table-of-contents-sidebar-pin-id" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/bug.png" src="" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/star.png" src="" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><img data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/code.png" src="" style="margin-left: 12px; height: 22px; width: 22px; cursor: pointer;"><br></span><ul id="table-of-contents-sidebar-list-container-id"><li class="ANCHOR-1"><a href="#21479371-bc51-ecfa-e67b-7c53aadfdf1d">rpm  Linux cheat sheet</a></li><li class="ANCHOR-2"><a href="#ac0e3e49-d0e7-4292-04d7-5466ff584b3c">rpm command cheat sheet for Linux</a></li><li class="ANCHOR-3"><a href="#d575d3f5-5367-d247-47d3-772cc2af634e"> © 2005 nixCraft - Disclaimer
+- Privacy policy
+</a></li></ul><span class="copyright">Powered by <a data-savepage-href="https://yiting.myportfolio.com?utm_source=toc" href="https://yiting.myportfolio.com/?utm_source=toc" target="_blank">Yiting</a> &amp; <a data-savepage-href="http://www.majiang.life?utm_source=toc" href="http://www.majiang.life/?utm_source=toc" target="_blank">Majiang</a></span><div id="table-of-contents-sidebar-fixed-sidebar-tooltip"></div></div><img id="table-of-contents-sidebar-hover-menu-id" data-savepage-src="chrome-extension://ohohkfheangmbedkgechjkmbepeikkej/table-of-contents-sidebar-lib/images/ic_normal.png" src="" class="table-of-contents-sidebar-menu" style="right: 18px;"></body></html>
