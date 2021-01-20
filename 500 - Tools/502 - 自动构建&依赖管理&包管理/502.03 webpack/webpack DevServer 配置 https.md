@@ -13,8 +13,8 @@
   // config/plugin.config.js
   config.devServer
     .https({
-      key: fs.readFileSync('/home/typist/WlyWork/Project/hyycso-ui-mobile/private.key'),
-      cert: fs.readFileSync('/home/typist/WlyWork/Project/hyycso-ui-mobile/certificate.crt')
+      key: fs.readFileSync('/path/to/private.key'),
+      cert: fs.readFileSync('/path/to/certificate.crt')
     });
   ```
 
