@@ -60,6 +60,14 @@ git branch --show-current
 git branch test 07aeec983bfc17c25f0b0a7c1d47da8e35df7af8
 ```
 
+#### 创建 Orphan 分支[没有父提交] ^[12]^
+```shell
+git checkout --orphan foobar
+
+# Unstage all the files in your working tree.
+git rm --cached $(git ls-files)
+```
+
 ### 远程仓库相关
 #### fetch ^[8]^
 ```shell
@@ -133,3 +141,4 @@ git checkout COMMIT -- file1/to/restore  fiel2/to/restore
 9. [git-scm doc git-credential-store#_options](https://git-scm.com/docs/git-credential-store#_options)
 10. [Git checkout all files from exact commit](https://stackoverflow.com/questions/23956587/git-checkout-all-files-from-exact-commit)
 11. [git unstage all files](https://michaelsoolee.com/git-unstage-all/)
+12. [How can I start a clean branch with no ancestry, then commit files progressively?](https://stackoverflow.com/questions/11487811/how-can-i-start-a-clean-branch-with-no-ancestry-then-commit-files-progressively/11487993)
