@@ -128,6 +128,13 @@ git checkout <commit> -- .
 git checkout COMMIT -- file1/to/restore  fiel2/to/restore
 ```
 
+### 连接
+#### 配置代理 ^[13]^
+```shell
+git config --global http.proxy http://127.0.0.1:1081
+git config --global https.proxy https://127.0.0.1:1081
+```
+
 
 ### 参考
 1. [Push local Git repo to new remote including all branches and tags](https://stackoverflow.com/questions/6865302/push-local-git-repo-to-new-remote-including-all-branches-and-tags)
@@ -142,3 +149,4 @@ git checkout COMMIT -- file1/to/restore  fiel2/to/restore
 10. [Git checkout all files from exact commit](https://stackoverflow.com/questions/23956587/git-checkout-all-files-from-exact-commit)
 11. [git unstage all files](https://michaelsoolee.com/git-unstage-all/)
 12. [How can I start a clean branch with no ancestry, then commit files progressively?](https://stackoverflow.com/questions/11487811/how-can-i-start-a-clean-branch-with-no-ancestry-then-commit-files-progressively/11487993)
+13. [Github 仓库 git clone 速度过慢解决方案](https://www.funyan.cn/p/5538.html)
