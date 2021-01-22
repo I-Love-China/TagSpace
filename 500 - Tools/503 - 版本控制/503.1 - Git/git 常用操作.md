@@ -19,11 +19,21 @@ git config --global alias.co "checkout"
 git config --global alias.st "status"
 ```
 
-### log
+### 查看历史
 
 #### 查看 Committer、Author ^[3][4]^
 ```shell
 git log  --pretty=format:"Author: %an (%ae) %n Committer: %cn %ce" origin/master 
+```
+
+#### 显示某次提交时，某个文件的内容 ^[12]^
+```shell
+git show [commit]:[filename]
+```
+
+#### 显示所有提交过的用户，按提交次数排序 ^[12]^
+```shell
+git shortlog -sn
 ```
 
 ### 添加暂存区
@@ -45,7 +55,17 @@ git reset
 ```
 
 ### 分支
-#### 查看所有分支 ^[8]^
+#### 查看所有本地分支 ^[12]^
+```shell
+git branch
+```
+
+#### 查看所有远程分支 ^[12]^
+```shell
+git branch -r
+```
+
+#### 查看所有分支(本地 & 远程) ^[8]^
 ```shell
 git branch -a
 ```
@@ -60,7 +80,7 @@ git branch --show-current
 git branch test 07aeec983bfc17c25f0b0a7c1d47da8e35df7af8
 ```
 
-#### 创建 Orphan 分支[没有父提交] ^[12]^
+#### 创建 Orphan 分支[没有父提交] ^[13]^
 ```shell
 git checkout --orphan foobar
 
@@ -129,7 +149,7 @@ git checkout COMMIT -- file1/to/restore  fiel2/to/restore
 ```
 
 ### 连接
-#### 配置代理 ^[13]^
+#### 配置代理 ^[14]^
 ```shell
 git config --global http.proxy http://127.0.0.1:1081
 git config --global https.proxy https://127.0.0.1:1081
@@ -148,5 +168,6 @@ git config --global https.proxy https://127.0.0.1:1081
 9. [git-scm doc git-credential-store#_options](https://git-scm.com/docs/git-credential-store#_options)
 10. [Git checkout all files from exact commit](https://stackoverflow.com/questions/23956587/git-checkout-all-files-from-exact-commit)
 11. [git unstage all files](https://michaelsoolee.com/git-unstage-all/)
-12. [How can I start a clean branch with no ancestry, then commit files progressively?](https://stackoverflow.com/questions/11487811/how-can-i-start-a-clean-branch-with-no-ancestry-then-commit-files-progressively/11487993)
-13. [Github 仓库 git clone 速度过慢解决方案](https://www.funyan.cn/p/5538.html)
+12. [常用的Git命令清单](https://mp.weixin.qq.com/s/r68M3qQ3Ed1J5ge1kLxrYQ)
+13. [How can I start a clean branch with no ancestry, then commit files progressively?](https://stackoverflow.com/questions/11487811/how-can-i-start-a-clean-branch-with-no-ancestry-then-commit-files-progressively/11487993)
+14. [Github 仓库 git clone 速度过慢解决方案](https://www.funyan.cn/p/5538.html)
