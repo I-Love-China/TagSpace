@@ -2,7 +2,7 @@
 
 ### 配置代理服务器
 #### 配置方法 A
-```
+```nginx
 
 # /etc/nginx/nginx.conf
 http {
@@ -30,7 +30,7 @@ http {
 ```
 
 #### 配置方法 B
-```
+```nginx
 # 在 http 块中添加
 
 server {
