@@ -32,11 +32,11 @@
 
 ### 快捷键
 
-| 操作         | 快捷键           |
-| ------------ | ---------------- |
-| 快速打开文件 | Ctrl + Shift + N |
-| 构建         | Ctrl + F9        |
-|              |                  |
+| 操作                  | 快捷键                                                       |
+| --------------------- | ------------------------------------------------------------ |
+| 快速打开文件          | Ctrl + Shift + N                                             |
+| 构建                  | Ctrl + F9                                                    |
+| 调整 Project 视图宽度 | `Alt + 1` 将鼠标焦点定位到 Project 视图后，<br />使用 `Ctrl + Shift + 左右方向键` 移动分割线 ^[4]^ |
 
 
 
@@ -44,3 +44,4 @@
   1. [jclasslib](https://github.com/ingokegel/jclasslib)
   2. https://www.jetbrains.com/help/idea/2018.3/cpu-profiler.html
   3. [IntelliJ IDEA 超全优化设置，效率提升 1000 倍！](https://www.jianshu.com/p/1f6cb53be034)
+  4. [IDEA竟然还藏着这些实用小技巧 ，网友：好用，好用~](https://mp.weixin.qq.com/s/gqW1NhlKxutvbxFvSlW-mg)
