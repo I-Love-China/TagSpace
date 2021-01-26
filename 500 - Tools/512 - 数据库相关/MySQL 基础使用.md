@@ -27,13 +27,13 @@ pv sqlfile.sql | mysql -uroot -p dbname
 ```
 
 ## 导出
-### 导出一个表
+### 导出一个表 ^[3]^
 ```shell
 mysqldump -u 用户名 -p 数据库名 表名> 导出的文件名  
 mysqldump -u wcnc -p smgp_apps_wcnc users> wcnc_users.sql
 ```
 
-### 导出整个数据库
+### 导出整个数据库 ^[3]^
 ```shell
 mysqldump -u 用户名 -p –default-character-set=utf-8 数据库名 > 导出的文件名
 mysqldump -u root -p sop> sop.sql  
@@ -45,8 +45,14 @@ mysqldump -u root -p sop> sop.sql
 mysqlpump -h 192.168.1.21 -uroot -p --databases $DB | sed -e '/^USE `/d' > $DB.$DATE_TIME.db 
 ```
 
+## 信息查看
+### 当前使用的数据库 ^[4]^
+```
+SELECT DATABASE()
+```
 
 ## 参考
 1. [Does mysqldump support a progress bar?](https://stackoverflow.com/questions/4852933/does-mysqldump-support-a-progress-bar)
 2. [christopher-paul-shaw/mysqldump-progress-export](https://gist.github.com/christopher-paul-shaw/db73591eb749949aad126947f1122702)
 3. [Linux学习笔记- MySQL常用命令](https://www.jianshu.com/p/b46fe8c2bbed#86520ff8-f173-5eaf-9a5e-8af8c0b37572)
+4. [MySQL: determine which database is selected?](https://stackoverflow.com/questions/8096550/mysql-determine-which-database-is-selected)
