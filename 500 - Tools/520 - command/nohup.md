@@ -29,6 +29,17 @@ nohup ./test.sh 2>&1 > run.log
 2. 如果当前工作目录的 `nohup.out` 文件不可写，输出重定向到 `$HOME/nohup.out` 文件中
 
 
+### zsh 退出时会终止 nohup 的问题 ^[2][3]^
+```shell
+nohup ./test.sh &!
+```
+> The &! (or equivalently, &|) is a zsh-specific shortcut to both background and disown the process, such that exiting the shell will leave it running.  ^[2]^
+
+
 ## 参考
 
 1. [每天一个 Linux 命令（81）： nohup 命令](https://mp.weixin.qq.com/s?__biz=MzAxODI5ODMwOA==&mid=2666550199&idx=2&sn=888c625bce23046bb44680d984a24fc2&chksm=80dc971cb7ab1e0ad1dac8d5c2f6a0f218ffc49823785f4e9732d007d626e3a1106f4d04ae1a&mpshare=1&scene=1&srcid=0127dM66aof7XLW7XUeih9ST&sharer_sharetime=1611711540474&sharer_shareid=7d84fec8f6d2c3bbc1f0f74bf5f3a886#rd)
+
+2. [Exit zsh, but leave running jobs open?](https://stackoverflow.com/questions/19302913/exit-zsh-but-leave-running-jobs-open)
+
+3. [Exiting terminal running “nohup ./my_script &” => “You have running jobs”. OK to exit?](https://unix.stackexchange.com/questions/231316/exiting-terminal-running-nohup-my-script-you-have-running-jobs-ok-to)
