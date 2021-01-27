@@ -8,7 +8,7 @@ sudo apt install librime-data-double-pinyin
 2. im-config 使用 ibus，重启电脑
 3. 配置输入源:  System Settings -> Text Entry 中添加输入源（Input sources to use）为 Chinese(Rime)
 
-3. 配置双拼方案: /home/user/.config/ibus/rime下增加配置文件default.custom.yaml:
+3. 配置双拼方案: `$HOME/.config/ibus/rime`下增加配置文件`default.custom.yaml`:
 ```
 patch:
   schema_list:
