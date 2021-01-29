@@ -1,4 +1,30 @@
-﻿### 	功能
+### 安装
+
+#### CentOS 安装 Typora
+
+```shell
+wget -O Typora-linux-x64.tar.gz https://typora.io/linux/Typora-linux-x64.tar.gz
+
+tar xzf Typora-linux-x64.tar.gz
+mv bin/Typora-linux-x64 /opt/
+
+echo "[Desktop Entry]
+Name=Typora
+Comment=Typora
+Exec=/opt/Typora-linux-x64/Typora
+Icon=/opt/Typora-linux-x64/resources/app/asserts/icon/icon_512x512@2x.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Development;
+" > /usr/share/applications/Typora.desktop
+```
+
+
+
+
+
+### 	功能
 
 ####  [画图(时序图、流程图、甘特图、类图、状态机、饼图)](https://support.typora.io/Draw-Diagrams-With-Markdown/)
 
