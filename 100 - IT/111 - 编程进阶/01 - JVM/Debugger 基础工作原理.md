@@ -139,6 +139,35 @@ When registered, events are fired on each method ==twice== on entering and exiti
 
 
 
+#### 方法断点会极大地影响 `debugger` 的性能
+
+##### 1. jmethodid 的 `lookup` 过程耗性能
+
+```c
+MethodEntry(jvmtiEnv *jvmti_env,
+            jNIEnv* jni_env,
+            jthread thread,
+            jmethodID method)
+```
+
+> It figures out that when the VM needs to retrieve a jmethodid it needs to perform an ==expensive== lookup. 
+
+##### 2. `Agent` 和 `Debugger` 之间的大量通信消耗时间
+
+> Furthermore, in case of ==remote debugging==, communication can turn to a severe I/O penalty. ^[1]^
+
+##### 3. VM's callbacks are synchronous
+
+> As already explained, once the Agent registers itself to VM's events (as specified by JVMTI specification), the VM will notify the Agent via callbacks.
+> These callbacks are fired from the same thread which triggered the event. VM's thread needs to ==wait== for the following:
+>
+> - Context switch - Agent must now take control and send a notification to the Debugger
+> - Method Breakpoint Validation - The Debugger needs to check whether the jmethodid related the MethodEntry or MethodExit events matches a jmethodid registered to be breaked.
+>
+> During this period of time code execution is stopped. ^[1]^
+
+
+
 ## 参考
 
 1. [Method Breakpoints are Evil](https://www.smartik.net/2017/11/method-breakpoints-are-evil.html)
