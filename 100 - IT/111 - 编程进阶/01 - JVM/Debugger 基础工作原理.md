@@ -24,7 +24,7 @@ JPDA 是设计用于 `debugger` 、`debuggee` 之间的通信，它包含 3 个�
 
 一个文本类型的 API，定义了 `debuggee` 和 `debugger` 之间的通信协议
 
-> The JavaTM Debug Wire Protocol (JDWP) is the protocol used for communication between a debugger and the Java virtual machine (VM) which it debugs (hereafter called the target VM). ^[3]^
+> The Java™ Debug Wire Protocol (JDWP) is the protocol used for communication between a debugger and the Java virtual machine (VM) which it debugs (hereafter called the target VM). ^[3]^
 
 >  ==JDWP is optional==; it might not be available in some implementations of the Java(TM) 2 SDK. 
 
@@ -34,7 +34,7 @@ JPDA 是设计用于 `debugger` 、`debuggee` 之间的通信，它包含 3 个�
 > Defines a high-level Java API designed to facilitate the interaction between `debuggee` and `debuggers`.
 > Internally JDI implements the `JDWP protocol` ^[1]^
 
-> The JavaTM Debug Interface (JDI) is a high level Java API providing information useful for debuggers and similar systems needing access to the running state of a (usually remote) virtual machine.^[4]^
+> The Java™ Debug Interface (JDI) is a high level Java API providing information useful for debuggers and similar systems needing access to the running state of a (usually remote) virtual machine.^[4]^
 
 定义了一个高层次的 API，这个 API 用于促进 `debugger` 和 `debuggee` 之间的交互
 
@@ -42,7 +42,7 @@ JPDA 是设计用于 `debugger` 、`debuggee` 之间的通信，它包含 3 个�
 
 #### JPDA 组件之间的交互
 
-![](https://picgo-notes.oss-cn-beijing.aliyuncs.com/img/JavaPlatformDebuggerArchitecture.png)
+![JavaPlatformDebuggerArchitecture](https://picgo-notes.oss-cn-beijing.aliyuncs.com/img/JavaPlatformDebuggerArchitecture.png)
 
 1. > The `VM` expose JVMTI capabilities to its `Agent`(==back-end-layer==)
 2. > The `Agent` lives inside `VM's` process
@@ -50,7 +50,10 @@ JPDA 是设计用于 `debugger` 、`debuggee` 之间的通信，它包含 3 个�
 4. > Whenever something interesting happens the VM fires a callback to the Agent which in turn send the event back to the `debugger` (==front-end layer==), our IDE, in most of the cases
 5. > The `debugger` can communicate with the `Agent` via raw JDWP or via JDI.
 
-
+- debug 模式启动参数
+  ![debug 模式启动参数](https://picgo-notes.oss-cn-beijing.aliyuncs.com/img/jvm_input_args_debug.png)
+- 非 debug 模式启动参数
+    ![非 debug 模式启动参数](https://picgo-notes.oss-cn-beijing.aliyuncs.com/img/jvm_input_arguments_nondebug.png)
 
 ### 断点是如何工作的
 
@@ -58,7 +61,7 @@ JPDA 是设计用于 `debugger` 、`debuggee` 之间的通信，它包含 3 个�
 
 
 
-### JVMTI 设置断点的方法/步骤
+### JVM TI 设置断点的方法/步骤
 
 #### I、Enable Breakpoint Events
 
