@@ -47,6 +47,20 @@
     1. 在浏览器地址栏输入chrome://flags/进入实验功能。
     2. 在搜索框输入reader，找到Enable Reader Mode选项
 
+
+
+### 技巧
+
+#### 网页关键词查找 ^[1]^
+
+##### 使用方法
+URI 后加上 `#__next:~:text=<要查找的关键词>`
+
+##### 效果图示
+![](https://picgo-notes.oss-cn-beijing.aliyuncs.com/img/chrome_next.png)
+
+
+
 ### 参考
 1. [那些Chrome不为人知的高效隐藏技巧，让你的浏览器好用10倍！
 ](https://www.jianshu.com/p/e178095a99b1)
