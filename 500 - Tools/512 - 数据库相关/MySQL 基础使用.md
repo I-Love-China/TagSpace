@@ -40,16 +40,24 @@ mysqldump -u root -p sop> sop.sql
 ```
 
 ### 导出时显示进度 ^[1]^
-```
+```shell
 # 注意是 mysqlpump，不是 mysqldump
 mysqlpump -h 192.168.1.21 -uroot -p --databases $DB | sed -e '/^USE `/d' > $DB.$DATE_TIME.db 
 ```
 
 ## 信息查看
 ### 当前使用的数据库 ^[4]^
-```
+```sql
 SELECT DATABASE()
 ```
+
+### 查看表结构
+
+```sql
+desc <TABLE>
+```
+
+
 
 ## 参考
 1. [Does mysqldump support a progress bar?](https://stackoverflow.com/questions/4852933/does-mysqldump-support-a-progress-bar)
