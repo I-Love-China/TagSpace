@@ -57,6 +57,18 @@ SELECT DATABASE()
 desc <TABLE>
 ```
 
+### processlist ^[5]^
+
+```sql
+-- 方法A:
+show processlist
+
+-- 方法B:
+select * from information_schema.processlist
+```
+
+
+
 
 
 ## 参考
@@ -64,3 +76,4 @@ desc <TABLE>
 2. [christopher-paul-shaw/mysqldump-progress-export](https://gist.github.com/christopher-paul-shaw/db73591eb749949aad126947f1122702)
 3. [Linux学习笔记- MySQL常用命令](https://www.jianshu.com/p/b46fe8c2bbed#86520ff8-f173-5eaf-9a5e-8af8c0b37572)
 4. [MySQL: determine which database is selected?](https://stackoverflow.com/questions/8096550/mysql-determine-which-database-is-selected)
+5. [mysql: show processlist 详解](https://zhuanlan.zhihu.com/p/30743094)
