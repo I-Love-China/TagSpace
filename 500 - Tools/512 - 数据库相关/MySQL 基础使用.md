@@ -26,7 +26,12 @@ mysql> LOAD DATA LOCAL INFILE “D:/mysql.txt”INTO TABLE MYTABLE;
 pv sqlfile.sql | mysql -uroot -p dbname
 ```
 
+==注意==: 这种方法有时会出现 `ERROR 1215 (HY000) at line 920: Cannot add foreign key constraint`，用 `source` 导入的话不会出现
+
+
+
 ## 导出
+
 ### 导出一个表 ^[3]^
 ```shell
 mysqldump -u 用户名 -p 数据库名 表名> 导出的文件名  
