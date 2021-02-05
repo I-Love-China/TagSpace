@@ -72,6 +72,21 @@ show processlist
 select * from information_schema.processlist
 ```
 
+### 数据库大小 ^[7]^
+
+```sql
+select
+	concat(round(sum(data_length / 1024 / 1024), 2), 'MB') as data
+from
+	information_schema.tables
+where
+	table_schema = 'schema_name'
+	and table_name = 'table_name';
+
+```
+
+
+
 
 
 ## 其他
@@ -79,7 +94,7 @@ select * from information_schema.processlist
 ### 生成 UUID ^[6]^
 
 ```sql
-uuid()
+select uuid()
 ```
 
 
@@ -91,3 +106,4 @@ uuid()
 4. [MySQL: determine which database is selected?](https://stackoverflow.com/questions/8096550/mysql-determine-which-database-is-selected)
 5. [mysql: show processlist 详解](https://zhuanlan.zhihu.com/p/30743094)
 6. [mybatis生成UUID主键，且获取当前新增的UUID主键](https://my.oschina.net/whatwhy/blog/3020583)
+7. [用SQL命令查看Mysql数据库大小](https://www.jianshu.com/p/cc20d90ac138)
