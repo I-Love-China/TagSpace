@@ -74,6 +74,14 @@ select * from information_schema.processlist
 
 
 
+## 其他
+
+### 生成 UUID ^[6]^
+
+```sql
+uuid()
+```
+
 
 
 ## 参考
@@ -82,3 +90,4 @@ select * from information_schema.processlist
 3. [Linux学习笔记- MySQL常用命令](https://www.jianshu.com/p/b46fe8c2bbed#86520ff8-f173-5eaf-9a5e-8af8c0b37572)
 4. [MySQL: determine which database is selected?](https://stackoverflow.com/questions/8096550/mysql-determine-which-database-is-selected)
 5. [mysql: show processlist 详解](https://zhuanlan.zhihu.com/p/30743094)
+6. [mybatis生成UUID主键，且获取当前新增的UUID主键](https://my.oschina.net/whatwhy/blog/3020583)
