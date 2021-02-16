@@ -11,7 +11,22 @@
 
 
 
+### 2. 使 IDEA 总是以新窗口的方式打开新项目
+**问题:**
+​        默认情况下，IDEA 打开新项目时会询问 “当前窗口打开”、“新窗口打开”，而选择 “新窗口打开” 并不会保证每次都会开一个新窗口，而是会在当前窗口打开新项目
+
+**解决方法:**
+
+> In Intellij 2018 it is `File --> Settings --> Appearance & Behavior --> System Settings`.
+>
+> In System Settings you'll see a radio button for `Open project in new window`^[2]^
+
+ 
+
+
+
 
 ## 参考
 
-1. [Java: slow performance or hangups when starting debugger and stepping]
+1. [Java: slow performance or hangups when starting debugger and stepping](https://intellij-support.jetbrains.com/hc/en-us/articles/206544799-Java-slow-performance-or-hangups-when-starting-debugger-and-stepping#:~:text=Java%3A%20slow%20performance%20or%20hangups%20when%20starting%20debugger%20and%20stepping%20Follow&text=Debugger%20performance%20can%20be%20affected,using%20the%20regular%20line%20breakpoints.)
+2. [How do I open a new window](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206372659-How-do-I-open-a-new-window)
