@@ -21,12 +21,19 @@
 >
 > In System Settings you'll see a radio button for `Open project in new window`^[2]^
 
- 
 
+### 3. 启动 SpringBoot 项目报错 ` Command line is too long.`
 
+**问题:**
 
+![](https://picgo-notes.oss-cn-beijing.aliyuncs.com/img/springboot_cmd_line_too_long_20210303181124.png)
+
+**解决方法:^[3]^**
+
+![](https://picgo-notes.oss-cn-beijing.aliyuncs.com/img/springboot_cmd_too_long_solution_17890732-4e5f0024a6030a15.png)
 
 ## 参考
 
 1. [Java: slow performance or hangups when starting debugger and stepping](https://intellij-support.jetbrains.com/hc/en-us/articles/206544799-Java-slow-performance-or-hangups-when-starting-debugger-and-stepping#:~:text=Java%3A%20slow%20performance%20or%20hangups%20when%20starting%20debugger%20and%20stepping%20Follow&text=Debugger%20performance%20can%20be%20affected,using%20the%20regular%20line%20breakpoints.)
 2. [How do I open a new window](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206372659-How-do-I-open-a-new-window)
+3. [idea报错：Error running 'XXX': Command line is too long. Shorten command line for xxxApplication or ...](https://www.jianshu.com/p/68d1a6bd2cc3)
