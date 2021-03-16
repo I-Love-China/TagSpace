@@ -15,6 +15,7 @@
   - String Manipulation
   - GenerateSerialVersionUID
   - jclasslib^[1]^
+  - [BashSupport](https://plugins.jetbrains.com/plugin/4230-bashsupport)
 
 ### 设置
   - Console 缓冲区大小
