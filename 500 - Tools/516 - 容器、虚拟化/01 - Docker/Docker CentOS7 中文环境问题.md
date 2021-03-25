@@ -24,7 +24,25 @@ ENV LANG=zh_CN.UTF-8 \
 
 
 
-### 参考
+
+
+## Docker CentOS7 时区问题
+
+### 问题表现
+
+默认时区不为东八区
+
+### 解决方法 ^[2]^
+
+```shell
+ENV TZ="Asia/Shanghai"
+```
+
+
+
+
+
+## 参考
 
 1. [Docker centos7 中文乱问题解决方案](https://blog.csdn.net/wo541075754/article/details/89787894)
 2. [Docker容器使用Centos7运行java后台代码出现中文乱码](https://www.codenong.com/cs106789010/)
