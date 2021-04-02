@@ -100,6 +100,16 @@ where
 
 
 
+## DDL
+
+#### 新建数据库 ^[9]^
+
+```sql
+create database test default character set utf8mb4 collate utf8mb4_unicode_ci;
+
+create database test default character set utf8mb4 collate utf8mb4_general_ci;
+```
+
 
 
 ## 其他
@@ -114,17 +124,11 @@ select uuid()
 
 ## 参考
 1. [Does mysqldump support a progress bar?](https://stackoverflow.com/questions/4852933/does-mysqldump-support-a-progress-bar)
-
 2. [christopher-paul-shaw/mysqldump-progress-export](https://gist.github.com/christopher-paul-shaw/db73591eb749949aad126947f1122702)
-
 3. [Linux学习笔记- MySQL常用命令](https://www.jianshu.com/p/b46fe8c2bbed#86520ff8-f173-5eaf-9a5e-8af8c0b37572)
-
 4. [MySQL: determine which database is selected?](https://stackoverflow.com/questions/8096550/mysql-determine-which-database-is-selected)
-
 5. [mysql: show processlist 详解](https://zhuanlan.zhihu.com/p/30743094)
-
 6. [mybatis生成UUID主键，且获取当前新增的UUID主键](https://my.oschina.net/whatwhy/blog/3020583)
-
 7. [用SQL命令查看Mysql数据库大小](https://www.jianshu.com/p/cc20d90ac138)
-
 8. [Get Insert Statement for existing row in MySQL](https://stackoverflow.com/questions/3978326/get-insert-statement-for-existing-row-in-mysql)
+9. [mysql create database新建utf8mb4 数据库](http://www.ecjson.com/article/123.html)
