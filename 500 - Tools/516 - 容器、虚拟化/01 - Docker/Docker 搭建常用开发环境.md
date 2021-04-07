@@ -16,6 +16,14 @@ sudo docker run --restart=always -d \
 
 
 
+### redis ^[2]^
+
+```bash
+sudo docker run --restart=always -d -p 6380:6379 redis
+```
+
+
+
 
 
 
@@ -23,3 +31,4 @@ sudo docker run --restart=always -d \
 ## 参考
 
 1. [How to change the default character set of mysql using docker-compose?](https://stackoverflow.com/questions/45729326/how-to-change-the-default-character-set-of-mysql-using-docker-compose)
+2. [docker部署redis实战](https://zhuanlan.zhihu.com/p/70110697)
