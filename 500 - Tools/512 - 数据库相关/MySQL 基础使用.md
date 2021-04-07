@@ -108,6 +108,14 @@ show variables like "character_set_database";
 
 
 
+### 表字段字符集 ^[11]^
+
+```sql
+SHOW FULL COLUMNS FROM <table_name>;
+```
+
+
+
 
 
 ## DDL
