@@ -100,6 +100,16 @@ where
 
 
 
+### 数据库字符集 ^[11]^
+
+```sql
+show variables like "character_set_database";
+```
+
+
+
+
+
 ## DDL
 
 #### 新建数据库 ^[9]^
@@ -152,3 +162,5 @@ select uuid()
 9. [mysql create database新建utf8mb4 数据库](http://www.ecjson.com/article/123.html)
 
 10. [How to change Column size of varchar type in mySQL? ](https://stackoverflow.com/questions/22668024/how-to-change-column-size-of-varchar-type-in-mysql)
+
+11. [How do I see what character set a MySQL database / table / column is?](https://stackoverflow.com/questions/1049728/how-do-i-see-what-character-set-a-mysql-database-table-column-is)
