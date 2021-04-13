@@ -19,7 +19,18 @@ a、Launch VS Code Quick Open(`Ctrl + P`)，enter `ext install xx` command
    ext install gera2ld.markmap-vscode
    ```
 
-   
+
+
+
+## 快捷键
+
+| 功能                     | 快捷键       |
+| ------------------------ | ------------ |
+| 选择文件语言(Java、JSON) | `Ctrl + K M` |
+|                          |              |
+|                          |              |
+
+
 
 ### 参考
 1. [vscode doc #indentation](https://code.visualstudio.com/docs/editor/codebasics#_indentation)
