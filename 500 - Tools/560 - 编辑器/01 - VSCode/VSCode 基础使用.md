@@ -18,6 +18,16 @@ a、Launch VS Code Quick Open(`Ctrl + P`)，enter `ext install xx` command
    ```
    ext install gera2ld.markmap-vscode
    ```
+   
+2. [PlantUML -- Rich PlantUML support for Visual Studio Code.](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
+
+   ```
+   ext install jebbs.plantuml
+   
+   # Preview Diagram, Press Alt-D to start PlantUML preview.
+   ```
+
+   
 
 
 
