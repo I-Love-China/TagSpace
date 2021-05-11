@@ -1,0 +1,11 @@
+﻿## MySQL 进阶使用
+
+### 比较操作 大小写敏感
+
+> Comparisons are **case insensitive** when the column uses a collation which ends with `_ci` (such as the *default* `latin1_general_ci` collation) and they are **case sensitive** when the column uses a collation which ends with `_cs` or `_bin` (such as the `utf8_unicode_cs` and `utf8_bin` collations). ^[1]^
+
+
+
+## 参考
+
+1. [MySQL: is a SELECT statement case sensitive?](https://stackoverflow.com/questions/3936967/mysql-is-a-select-statement-case-sensitive)
