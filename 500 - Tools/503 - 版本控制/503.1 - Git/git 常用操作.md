@@ -145,7 +145,39 @@ git stash save <message>
 git stash apply stash${1} # 使用第二个储藏
 ```
 
+### diff
+
+#### compare staged changes with specific commit  ^[16]^
+```bash
+git diff [--options] --cached [<commit>] [--] [<path>...]
+```
+
+> This form is to view the changes you staged for the next commit relative to the named `<commit>`. Typically you would want comparison with the latest commit, so if you do not give `<commit>`, it defaults to HEAD. ^[16]^
+
+
+
+#### compare working directory with specific commit ^[16]^
+
+```bash
+git diff [--options] <commit> [--] [<path>...]
+```
+
+> This form is to view the changes you have in your working tree relative to the named `<commit>` ^[16]^
+
+
+
+#### compare any two commits
+
+```bash
+git diff [--options] <commit> <commit> [--] [<path>...]
+```
+
+> This is to view the changes between two arbitrary `<commit>`s.
+
+
+
 ### credential
+
 #### credential 文件位置
   - 默认 ~/.git-credentials ^[9]^
 
@@ -198,3 +230,6 @@ git config --global https.proxy https://127.0.0.1:1081
 14. [Github 仓库 git clone 速度过慢解决方案](https://www.funyan.cn/p/5538.html)
 
 15. [How do I provide a username and password when running “git clone git@remote.git”?](https://stackoverflow.com/questions/10054318/how-do-i-provide-a-username-and-password-when-running-git-clone-gitremote-git)
+
+16. [Difference between a git commit and the working directory?](https://stackoverflow.com/questions/18124699/difference-between-a-git-commit-and-the-working-directory)
+
