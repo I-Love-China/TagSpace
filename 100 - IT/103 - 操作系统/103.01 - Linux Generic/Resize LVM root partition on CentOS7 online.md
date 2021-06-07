@@ -88,6 +88,10 @@ dracut --regenerate-all --force
 
 
 
+### 其他方法
+
+- [How to Shrink XFS File System on Enterprise Linux 7.2](https://logic.edchen.org/how-to-shrink-xfs-file-system-on-enterprise-linux-7-2/)
+
 
 
 ### 参考
