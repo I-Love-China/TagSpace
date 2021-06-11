@@ -26,6 +26,12 @@ archlinux-java set java-14-jdk
 
 
 
+### JDK 下载
+
+- [Java Downloads for All Operating Systems](https://java.com/en/download/manual.jsp)
+
+
+
 ## 参考
 
 1. [How to set Python3.5.2 as default Python version on CentOS?](https://stackoverflow.com/questions/45542690/how-to-set-python3-5-2-as-default-python-version-on-centos)
