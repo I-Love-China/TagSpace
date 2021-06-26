@@ -35,7 +35,7 @@ top -n 1 -H -p 23408
 ### 方法 D / 原理: Programmatically find which Thread is consuming your CPU
 
 ```java
-ThreadMXBean tmxb = ManagementFactory.getThreadMXBean();
+ThreadMXBean tmxb = sun.management.ManagementFactoryHelper.getThreadMXBean();
 
 // Then you can query how much a specific thread is consuming by using:
 
