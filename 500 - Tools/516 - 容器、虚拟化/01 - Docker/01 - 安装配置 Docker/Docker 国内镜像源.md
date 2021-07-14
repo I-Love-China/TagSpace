@@ -10,7 +10,7 @@
 
 ```json
 {
-	"registry-mirrors": ["https://registry.cn-hangzhou.aliyuncs.com"]
+	"registry-mirrors": ["http://hub-mirror.c.163.com/"]
 }
 ```
 
