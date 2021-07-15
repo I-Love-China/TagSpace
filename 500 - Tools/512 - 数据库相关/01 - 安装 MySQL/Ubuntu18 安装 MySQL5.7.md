@@ -1,8 +1,6 @@
-﻿## MySQL 安装 & 卸载
+﻿## MySQL5.7 @ Ubuntu 18.04 ^[1]^
 
-### MySQL5.7 @ Ubuntu 18.04 ^[1]^
-
-#### I、Installing MySQL
+### I、Installing MySQL
 
 ```shell
 sudo apt update
@@ -11,7 +9,7 @@ sudo apt install mysql-server-5.7
 
 
 
-#### II、Configuring MySQL
+### II、Configuring MySQL
 
 ```shell
 sudo mysql_secure_installation
@@ -23,9 +21,9 @@ sudo mysql_secure_installation
 
 
 
-#### III、Adjusting User Authentication and Privileges
+### III、Adjusting User Authentication and Privileges
 
-**允许 `root` 账号通过密码连接**
+#### **允许 `root` 账号通过密码连接**
 
 > In Ubuntu systems running MySQL 5.7 (and later versions), the **root** MySQL user is set to authenticate using the `auth_socket` plugin by default rather than with a password. ^[1]^
 
@@ -47,7 +45,7 @@ FLUSH PRIVILEGES;
 
 
 
-**添加新用户**
+#### **添加新用户**
 
 ```sql
 CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
@@ -56,6 +54,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
 ```
 
 > Note that, at this point, you do not need to run the `FLUSH PRIVILEGES` command again. This command is only needed when you modify the grant tables using statements like `INSERT`, `UPDATE`, or `DELETE`. Because you created a new user, instead of modifying an existing one, ==`FLUSH PRIVILEGES` is unnecessary here.== ^[1]^
+
+
+
 
 
 ## 参考
