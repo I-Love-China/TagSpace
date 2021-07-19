@@ -3,6 +3,9 @@
 ### Prerequisition
 
 - 开启 binlog
+- 对于闪回操作的额外要求
+  - binlog_format=row
+  - 只支持 DML、不支持 DDL 的闪回
 
 
 
