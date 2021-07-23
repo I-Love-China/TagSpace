@@ -18,6 +18,7 @@
   - [Table of contents sidebar](https://chrome.google.com/webstore/detail/table-of-contents-sidebar/ohohkfheangmbedkgechjkmbepeikkej)
   - [Take Webpage Screenshots Entirely - FireShot](https://chrome.google.com/webstore/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg)
   - [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+  - [The Great Suspender Original](https://chrome.google.com/webstore/detail/the-great-suspender-origi/ahmkjjgdligadogjedmnogbpbcpofeeo?hl=en-US)^[2]^
   - [Toby for Chrome](https://chrome.google.com/webstore/detail/toby-for-chrome/hddnkoipeenegfoeaoibdmnaalmgkpip)
   - [Wayback Machine](https://chrome.google.com/webstore/detail/wayback-machine/fpnmgdkabkmnadcjpehmlllkndpkmiak)
   - [京价保 - 京东价保助手](https://chrome.google.com/webstore/detail/%E4%BA%AC%E4%BB%B7%E4%BF%9D-%E4%BA%AC%E4%B8%9C%E4%BB%B7%E4%BF%9D%E5%8A%A9%E6%89%8B/gfgkebiommjpiaomalcbfefimhhanlfd)
@@ -63,5 +64,5 @@ URI 后加上 `#__next:~:text=<要查找的关键词>`
 
 
 ### 参考
-1. [那些Chrome不为人知的高效隐藏技巧，让你的浏览器好用10倍！
-](https://www.jianshu.com/p/e178095a99b1)
+1. [那些Chrome不为人知的高效隐藏技巧，让你的浏览器好用10倍！](https://www.jianshu.com/p/e178095a99b1)
+2. [我常用的浏览器插件](https://mp.weixin.qq.com/s/eQVGva0izc3ZLFJoC_cwBw)  by **improve365**
