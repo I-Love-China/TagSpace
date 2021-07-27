@@ -96,6 +96,31 @@ git submodule deinit <submodule-name>
        	url = https://git.oschina.net/gaofeifps/leg.git
 ```
 
+
+
+### Change the remote repository for a git submodule from parent project ^[2]^
+
+#### a. 直接修改 `.gitmodules` 文件
+
+1. edit the `.gitmodules` file to update the URL
+2. run `git submodule sync --recursive` to reflect that change to the superproject and your working copy
+3. go to the `.git/modules/path_to_submodule` dir and change its config file to update git path
+
+
+
+#### b. `submodule set-url`
+
+```bash
+# Since Git 2.25(Q1 2020)
+git submodule set-url [--] <path> <newUrl>
+```
+
+
+
+
+
 ### 参考
 
 1. [git-submodule](https://blog.justwe.site/post/git-submodule/)
+
+2. [How to change the remote repository for a git submodule?](https://stackoverflow.com/questions/913701/how-to-change-the-remote-repository-for-a-git-submodule)
