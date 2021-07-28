@@ -2,19 +2,39 @@
 
 ### plugins
   - Add to gitignore
+
   - Alibaba Java Coding Guidelines
+
   - arthas idea
+
+  - [easy_javadoc](https://plugins.jetbrains.com/plugin/12977-easy-javadoc) ^[6]^
+
+    > 快捷键 `Ctrl + \` 、 `Ctrl + Shift + \`
+
   - Free MyBatis Plugin
+
   - GitToolBox
+
   - Grep Console
+
   - idea-mybatis-generator
+
   - JRebel and XRebel for IntelliJ
+
   - Key Promoter X
+
   - Lombok
+
   - Maven Helper
+
+  - [RestfulToolkit](https://plugins.jetbrains.com/plugin/12977-easy-javadoc) ^[6]^
+
   - String Manipulation
+
   - GenerateSerialVersionUID
+
   - jclasslib^[1]^
+
   - [BashSupport](https://plugins.jetbrains.com/plugin/4230-bashsupport)
 
 ### 设置
@@ -52,3 +72,5 @@
   3. [IntelliJ IDEA 超全优化设置，效率提升 1000 倍！](https://www.jianshu.com/p/1f6cb53be034)
   4. [IDEA竟然还藏着这些实用小技巧 ，网友：好用，好用~](https://mp.weixin.qq.com/s/gqW1NhlKxutvbxFvSlW-mg)
   5. [Intellij IDEA神器，那些让人爱不释手的提效小技巧](https://mp.weixin.qq.com/s/F3wHCX6zg0UPkYguay5TnQ)
+    6. [IntelliJ IDEA 中有什么让你相见恨晚的技巧？](https://www.zhihu.com/question/300830746/answer/1944051623)
+
