@@ -1,4 +1,4 @@
-﻿### 安装 & 配置
+﻿﻿### 安装 & 配置
 #### 安装更新版本的 git
 ```shell
 sudo add-apt-repository ppa:git-core/ppa -y
@@ -192,7 +192,22 @@ git checkout <commit> -- .
 git checkout COMMIT -- file1/to/restore  fiel2/to/restore
 ```
 
+#### 签出远程仓库的所有分支 ^[17]^
+```shell
+#!/bin/bash
+
+#Whenever you clone a repo, you do not clone all of its branches by default.
+#If you wish to do so, use the following script:
+
+for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master `; do
+   git branch --track ${branch#remotes/origin/} $branch
+done
+```
+
+
+
 ### 连接
+
 #### 配置代理 ^[14]^
 ```shell
 git config --global http.proxy http://127.0.0.1:1081
@@ -200,36 +215,24 @@ git config --global https.proxy https://127.0.0.1:1081
 ```
 
 
+
 ### 参考
+
 1. [Push local Git repo to new remote including all branches and tags](https://stackoverflow.com/questions/6865302/push-local-git-repo-to-new-remote-including-all-branches-and-tags)
-
 2. [git push to multiple repositories simultaneously [duplicate]](https://stackoverflow.com/questions/4255865/git-push-to-multiple-repositories-simultaneously/4255934#4255934)
-
 3. [How can I display the committer using git diff](https://stackoverflow.com/questions/26360563/how-can-i-display-the-committer-using-git-diff)
-
 4. [git-log](https://git-scm.com/docs/git-log)
-
 5. [How to create the branch from specific commit in different branch](https://stackoverflow.com/questions/8483983/how-to-create-the-branch-from-specific-commit-in-different-branch/8491176)
-
 6. [How can I reset or revert a file to a specific revision?](https://stackoverflow.com/questions/215718/how-can-i-reset-or-revert-a-file-to-a-specific-revision)
-
 7. [Add all files to a commit except a single file?](https://stackoverflow.com/questions/4475457/add-all-files-to-a-commit-except-a-single-file)
-
 8. [一学就会的git命令](https://mp.weixin.qq.com/s/-LHi_9Z0lfBoxg-kjoIdWg)
-
 9. [git-scm doc git-credential-store#_options](https://git-scm.com/docs/git-credential-store#_options)
-
 10. [Git checkout all files from exact commit](https://stackoverflow.com/questions/23956587/git-checkout-all-files-from-exact-commit)
-
 11. [git unstage all files](https://michaelsoolee.com/git-unstage-all/)
-
 12. [常用的Git命令清单](https://mp.weixin.qq.com/s/r68M3qQ3Ed1J5ge1kLxrYQ)
-
 13. [How can I start a clean branch with no ancestry, then commit files progressively?](https://stackoverflow.com/questions/11487811/how-can-i-start-a-clean-branch-with-no-ancestry-then-commit-files-progressively/11487993)
-
 14. [Github 仓库 git clone 速度过慢解决方案](https://www.funyan.cn/p/5538.html)
-
 15. [How do I provide a username and password when running “git clone git@remote.git”?](https://stackoverflow.com/questions/10054318/how-do-i-provide-a-username-and-password-when-running-git-clone-gitremote-git)
-
 16. [Difference between a git commit and the working directory?](https://stackoverflow.com/questions/18124699/difference-between-a-git-commit-and-the-working-directory)
+17. [wilmarvh](https://gist.github.com/wilmarvh)/[git checkout-all-branches.sh](https://gist.github.com/wilmarvh/95fe7daed6ee6a63d811677e040ae421)
 
