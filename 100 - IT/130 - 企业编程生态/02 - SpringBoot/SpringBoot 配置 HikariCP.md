@@ -1,4 +1,4 @@
-﻿## SpringBoot 配置 HikariCP
+﻿﻿## SpringBoot 配置 HikariCP
 
 ### 示例
 
@@ -18,7 +18,7 @@
 
 spring:
   datasource:
-    
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.1.21:3306/test?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&allowMutiQueries=true
     username: user
