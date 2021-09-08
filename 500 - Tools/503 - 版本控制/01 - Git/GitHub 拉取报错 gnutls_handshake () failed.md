@@ -1,4 +1,4 @@
-﻿## GitHub 拉取报错 "gnutls_handshake () failed"
+﻿﻿## GitHub 拉取报错 "gnutls_handshake () failed"
 
 
 
@@ -10,6 +10,17 @@ git config --global https.https://github.com.proxy https://127.0.0.1:3128
 ```
 
 
+
+### 扩展
+
+- 取消配置代理 ^[1]^
+
+  ```bash
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+  ```
+
+  
 
 
 
