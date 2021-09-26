@@ -44,7 +44,18 @@ mysqldump -t -u MyUserName -pMyPassword MyDatabase MyTable --where="ID = 10"
 
 
 
+#### Mysqldump ONE INSERT statement for each data row^[7]^
+
+```bash
+mysqldump --extended-insert=FALSE 
+```
+
+
+
+
+
 ## 参考
+
 1. [Does mysqldump support a progress bar?](https://stackoverflow.com/questions/4852933/does-mysqldump-support-a-progress-bar)
 
 2. [christopher-paul-shaw/mysqldump-progress-export](https://gist.github.com/christopher-paul-shaw/db73591eb749949aad126947f1122702)
@@ -56,3 +67,5 @@ mysqldump -t -u MyUserName -pMyPassword MyDatabase MyTable --where="ID = 10"
 5. [Mysqldump: create column names for inserts when backing up](https://stackoverflow.com/questions/5467517/mysqldump-create-column-names-for-inserts-when-backing-up)
 
 6. [How to mysqldump WITHOUT dropping any tables](https://stackoverflow.com/questions/49682922/how-to-mysqldump-without-dropping-any-tables)
+
+7. [MySQLDump one INSERT statement for each data row](https://stackoverflow.com/questions/12439353/mysqldump-one-insert-statement-for-each-data-row)
