@@ -1,4 +1,4 @@
-﻿## MySQL 导出操作
+## MySQL 导出操作
 
 
 
@@ -30,6 +30,12 @@ mysqldump -t -u MyUserName -pMyPassword MyDatabase MyTable --where="ID = 10"
 
 
 
+### Create column names for inserts when backing up ^[5]^
+
+> Use `--complete-insert` in the mysqldump command params
+
+
+
 ## 参考
 1. [Does mysqldump support a progress bar?](https://stackoverflow.com/questions/4852933/does-mysqldump-support-a-progress-bar)
 
@@ -38,3 +44,5 @@ mysqldump -t -u MyUserName -pMyPassword MyDatabase MyTable --where="ID = 10"
 3. [Linux学习笔记- MySQL常用命令](https://www.jianshu.com/p/b46fe8c2bbed#86520ff8-f173-5eaf-9a5e-8af8c0b37572)
 
 4. [Get Insert Statement for existing row in MySQL](https://stackoverflow.com/questions/3978326/get-insert-statement-for-existing-row-in-mysql)
+
+5. [Mysqldump: create column names for inserts when backing up](https://stackoverflow.com/questions/5467517/mysqldump-create-column-names-for-inserts-when-backing-up)
