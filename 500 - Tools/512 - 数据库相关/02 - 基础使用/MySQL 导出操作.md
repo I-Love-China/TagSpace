@@ -36,6 +36,14 @@ mysqldump -t -u MyUserName -pMyPassword MyDatabase MyTable --where="ID = 10"
 
 
 
+### mysqldump without dropping any tables^[6]^
+
+> Include the command for the mysqldump ignore the structure.
+>
+> > mysqldump --no-create-info ...
+
+
+
 ## 参考
 1. [Does mysqldump support a progress bar?](https://stackoverflow.com/questions/4852933/does-mysqldump-support-a-progress-bar)
 
@@ -46,3 +54,5 @@ mysqldump -t -u MyUserName -pMyPassword MyDatabase MyTable --where="ID = 10"
 4. [Get Insert Statement for existing row in MySQL](https://stackoverflow.com/questions/3978326/get-insert-statement-for-existing-row-in-mysql)
 
 5. [Mysqldump: create column names for inserts when backing up](https://stackoverflow.com/questions/5467517/mysqldump-create-column-names-for-inserts-when-backing-up)
+
+6. [How to mysqldump WITHOUT dropping any tables](https://stackoverflow.com/questions/49682922/how-to-mysqldump-without-dropping-any-tables)
